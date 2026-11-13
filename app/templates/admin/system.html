@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}System · Admin{% endblock %}
+{% block description %}Model integrity, library versions and costing settings.{% endblock %}
+{% block content %}
+{% set admin_title = "System status" %}{% set admin_lead = "Model artifacts are checked against their SHA-256 fingerprints and the golden samples every time the app starts." %}
+{% include "admin/_tabs.html" %}
+<div class="grid grid-2">
+  <section class="card"><h2>Model integrity</h2>
+    <dl class="facts">
+      <div><dt>Environment</dt><dd>{{ env }}</dd></div>
+      <div><dt>Artifact files verified</dt><dd>{{ model.files_verified }}</dd></div>
+      <div><dt>Golden samples</dt><dd>{{ model.golden.samples }} — cost {{ "✓" if model.golden.cost_matches else "✗" }}, priority {{ "✓" if model.golden.priority_matches else "✗" }}, group {{ "✓" if model.golden.group_matches else "✗" }}</dd></div>
+      <div><dt>Version notes</dt><dd>{{ model.version_notes|join(", ") or "None — identical to training" }}</dd></div>
+    </dl>
+    <p class="small section">MANIFEST SHA-256<br><code>{{ model.manifest_sha256 }}</code></p></section>
+  <section class="card"><h2>Costing settings</h2>
+    <dl class="facts">
+      <div><dt>Price basis</dt><dd>{{ model.price_basis }}</dd></div>
+      <div><dt>Contingency</dt><dd>{{ "%g"|format(estimator.contingency_percent) }}% (assumption)</dd></div>
+      <div><dt>Price-level factor</dt><dd>{{ estimator.price_index_factor }}</dd></div>
+      <div><dt>Index source</dt><dd>{{ estimator.price_index_source or "Not applied — no official regional index" }}</dd></div>
+    </dl></section>
+  <section class="card"><h2>Library versions</h2>
+    <table class="table table-compact"><thead><tr><th scope="col">Library</th><th scope="col">Installed</th><th scope="col">Trained with</th></tr></thead>
+      <tbody>{% for k, v in model.installed.items() %}<tr><td>{{ k }}</td><td>{{ v }}</td><td>{{ model.trained_versions.get(k, "–") }}</td></tr>{% endfor %}</tbody></table></section>
+  <section class="card"><h2>Phase 1 evaluation</h2><p class="small muted">Synthetic data — see <a href="{{ url_for('analytics.index') }}">Analytics</a> for charts.</p>
+    <table class="table table-compact"><tbody>
+      {% for name, rows in model.metrics.items() if name != "kmeans" %}{% for row, values in rows.items() %}
+      <tr><td>{{ row }}</td><td>{% for k, v in values.items() %}{{ k }} {{ v }}{% if not loop.last %} · {% endif %}{% endfor %}</td></tr>{% endfor %}{% endfor %}</tbody></table></section>
+</div>
+{% endblock %}

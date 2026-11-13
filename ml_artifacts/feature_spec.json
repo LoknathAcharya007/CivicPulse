@@ -1,0 +1,366 @@
+{
+  "price_basis": "CPWD DSR 2023 (Delhi) price level; regional Building Cost Index not applied",
+  "cost_target": "log of improvement cost in INR; predictions converted back with exp()",
+  "lr_coefficients": {
+    "log_quantity": 0.911285,
+    "current_level": -0.808609,
+    "target_level": 0.768392,
+    "damaged_share_pct": 0.002829,
+    "asset_age_years": 0.003404,
+    "coalfield_code": 0.078268,
+    "town_class_code": 0.04206,
+    "asset_category_Drainage": 0.186742,
+    "asset_category_Streetlights": 2.548098,
+    "asset_category_Water_supply_pipelines": -0.104035,
+    "asset_category_Public_parks": -1.014179
+  },
+  "lr_intercept": 5.862418322668114,
+  "dt_feature_importance": {
+    "current_level": 0.5186,
+    "damaged_share_pct": 0.032,
+    "asset_age_years": 0.0142,
+    "years_since_maintenance": 0.0534,
+    "complaints_last_12m": 0.0204,
+    "log_population_served": 0.1694,
+    "asset_category_Drainage": 0.0071,
+    "asset_category_Streetlights": 0.0398,
+    "asset_category_Water_supply_pipelines": 0.0157,
+    "asset_category_Public_parks": 0.1295
+  },
+  "outlier_rule": {
+    "flag_above_abs_z": 3,
+    "remove_above_abs_z": 4,
+    "groups": {
+      "Drainage | +1": [
+        6.284743244861429,
+        0.27759641748329555
+      ],
+      "Drainage | +2": [
+        7.458294811962398,
+        0.20525911434452854
+      ],
+      "Drainage | +3": [
+        8.150836963550589,
+        0.37706078781179203
+      ],
+      "Drainage | +4": [
+        8.73985406847259,
+        0.14589307499336956
+      ],
+      "Public parks | +1": [
+        5.014381553202982,
+        0.2026804719685162
+      ],
+      "Public parks | +2": [
+        6.167291827082775,
+        0.1939656257335451
+      ],
+      "Public parks | +3": [
+        6.79036723453228,
+        0.16959965630009824
+      ],
+      "Public parks | +4": [
+        7.267580376092572,
+        0.11728927177412872
+      ],
+      "Roads | +1": [
+        5.952827995663902,
+        0.28651489055646995
+      ],
+      "Roads | +2": [
+        7.179809610799083,
+        0.20419190753681432
+      ],
+      "Roads | +3": [
+        7.862518518865339,
+        0.16615159032458698
+      ],
+      "Roads | +4": [
+        8.304338424794805,
+        0.1403109360720727
+      ],
+      "Streetlights | +1": [
+        8.952123197549984,
+        0.3608697923745264
+      ],
+      "Streetlights | +2": [
+        9.937191487201073,
+        0.13541450702692598
+      ],
+      "Streetlights | +3": [
+        10.760777631352674,
+        0.14678220370211478
+      ],
+      "Streetlights | +4": [
+        11.252954365299805,
+        0.15400571651060263
+      ],
+      "Water supply pipelines | +1": [
+        6.050361280556926,
+        0.2947755895827651
+      ],
+      "Water supply pipelines | +2": [
+        7.180309593249738,
+        0.2104864295921444
+      ],
+      "Water supply pipelines | +3": [
+        7.6711826487486725,
+        0.19599029865738754
+      ],
+      "Water supply pipelines | +4": [
+        8.133407554828612,
+        0.10710065851416677
+      ]
+    }
+  },
+  "package_unit_costs": {
+    "Roads": [
+      304.15,
+      1059.93,
+      2460.85
+    ],
+    "Drainage": [
+      350.0,
+      1265.98,
+      3556.73
+    ],
+    "Streetlights": [
+      6500.0,
+      18000.0,
+      55000.0
+    ],
+    "Water supply pipelines": [
+      273.96,
+      966.12,
+      1860.92
+    ],
+    "Public parks": [
+      120.0,
+      395.8,
+      879.47
+    ]
+  },
+  "lr_features": [
+    "log_quantity",
+    "current_level",
+    "target_level",
+    "damaged_share_pct",
+    "asset_age_years",
+    "coalfield_code",
+    "town_class_code",
+    "asset_category_Drainage",
+    "asset_category_Streetlights",
+    "asset_category_Water_supply_pipelines",
+    "asset_category_Public_parks"
+  ],
+  "dt_features": [
+    "current_level",
+    "damaged_share_pct",
+    "asset_age_years",
+    "years_since_maintenance",
+    "complaints_last_12m",
+    "log_population_served",
+    "asset_category_Drainage",
+    "asset_category_Streetlights",
+    "asset_category_Water_supply_pipelines",
+    "asset_category_Public_parks"
+  ],
+  "km_features": [
+    "current_level",
+    "damaged_share_pct",
+    "asset_age_years",
+    "years_since_maintenance",
+    "complaints_last_12m"
+  ],
+  "fill_values": {
+    "asset_age_years": 17.0,
+    "damaged_share_pct": 37.849999999999994,
+    "complaints_last_12m": 5.0,
+    "population_served": 6738.5
+  },
+  "km_means": [
+    1.694040356640075,
+    40.0775926794932,
+    17.8808071328015,
+    4.153918348193336,
+    5.384795870483341
+  ],
+  "km_stds": [
+    1.2661929682379636,
+    26.120637199903356,
+    10.761693301170665,
+    3.2519362013456,
+    3.4951509874750877
+  ],
+  "group_names": {
+    "0": "Poor condition, ageing assets",
+    "1": "Good condition, newer assets",
+    "2": "Fair condition, mid-life assets",
+    "3": "Poor condition, maintenance overdue"
+  },
+  "group_profiles": [
+    {
+      "group": 0,
+      "name": "Poor condition, ageing assets",
+      "current_level": 0.4,
+      "damaged_share_pct": 67.1,
+      "asset_age_years": 27.5,
+      "years_since_maintenance": 3.3,
+      "complaints_last_12m": 8.6,
+      "records": 529,
+      "share_critical_or_high_%": 95.0
+    },
+    {
+      "group": 1,
+      "name": "Good condition, newer assets",
+      "current_level": 3.3,
+      "damaged_share_pct": 11.2,
+      "asset_age_years": 7.6,
+      "years_since_maintenance": 2.6,
+      "complaints_last_12m": 2.4,
+      "records": 580,
+      "share_critical_or_high_%": 1.0
+    },
+    {
+      "group": 2,
+      "name": "Fair condition, mid-life assets",
+      "current_level": 1.8,
+      "damaged_share_pct": 34.5,
+      "asset_age_years": 17.2,
+      "years_since_maintenance": 3.8,
+      "complaints_last_12m": 4.7,
+      "records": 763,
+      "share_critical_or_high_%": 33.0
+    },
+    {
+      "group": 3,
+      "name": "Poor condition, maintenance overdue",
+      "current_level": 0.4,
+      "damaged_share_pct": 66.1,
+      "asset_age_years": 23.4,
+      "years_since_maintenance": 10.5,
+      "complaints_last_12m": 7.7,
+      "records": 259,
+      "share_critical_or_high_%": 98.0
+    }
+  ],
+  "baseline_rate_per_unit": {
+    "Drainage": 1476.04,
+    "Public parks": 436.54,
+    "Roads": 1199.57,
+    "Streetlights": 11332.43,
+    "Water supply pipelines": 965.29
+  },
+  "max_quantity": {
+    "Roads": 50000,
+    "Drainage": 5000,
+    "Streetlights": 500,
+    "Water supply pipelines": 8000,
+    "Public parks": 50000
+  },
+  "units": {
+    "Roads": "m2",
+    "Drainage": "m",
+    "Streetlights": "units",
+    "Water supply pipelines": "m",
+    "Public parks": "m2"
+  },
+  "grade_order": [
+    "E",
+    "D",
+    "C",
+    "B",
+    "A"
+  ],
+  "grade_names": {
+    "A": "Very Good",
+    "B": "Good",
+    "C": "Satisfactory",
+    "D": "Poor",
+    "E": "Very Bad"
+  },
+  "priority_order": [
+    "Very Low",
+    "Low",
+    "Moderate",
+    "High",
+    "Critical"
+  ],
+  "holdout_towns": [
+    "Ukhra",
+    "Prayagpur"
+  ],
+  "decision_tree_depth": 7,
+  "metrics": {
+    "linear_regression": {
+      "Linear Regression (test)": {
+        "MAE_lakh": 6.296,
+        "RMSE_lakh": 14.747,
+        "R2": 0.915,
+        "MAPE_%": 20.877
+      },
+      "Baseline (test)": {
+        "MAE_lakh": 16.689,
+        "RMSE_lakh": 33.988,
+        "R2": 0.55,
+        "MAPE_%": 93.061
+      },
+      "Linear Regression (held-out towns)": {
+        "MAE_lakh": 4.704,
+        "RMSE_lakh": 9.844,
+        "R2": 0.949,
+        "MAPE_%": 20.736
+      },
+      "Baseline (held-out towns)": {
+        "MAE_lakh": 16.361,
+        "RMSE_lakh": 31.959,
+        "R2": 0.461,
+        "MAPE_%": 104.269
+      }
+    },
+    "decision_tree": {
+      "Decision Tree (test)": {
+        "accuracy": 0.764,
+        "within_one_level": 0.996
+      },
+      "Condition-only (test)": {
+        "accuracy": 0.679,
+        "within_one_level": 0.987
+      },
+      "Decision Tree (held-out towns)": {
+        "accuracy": 0.725,
+        "within_one_level": 0.997
+      },
+      "Condition-only (held-out towns)": {
+        "accuracy": 0.667,
+        "within_one_level": 0.993
+      }
+    },
+    "kmeans": {
+      "k": 4,
+      "inertias": [
+        10655.0,
+        5980.4,
+        4984.3,
+        4172.1,
+        3728.7,
+        3391.9,
+        3140.1,
+        2948.9,
+        2787.8,
+        2662.0
+      ]
+    }
+  },
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "random_seed": 42,
+  "status": "Phase 1 final"
+}

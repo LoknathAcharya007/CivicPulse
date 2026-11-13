@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% from "_ui.html" import bars, stackbar, grade, grade_cell, priority, empty, icon %}
+{% block title %}Dashboard{% endblock %}
+{% block description %}Overview of infrastructure assets, condition grades, maintenance priorities and saved cost estimates.{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <div class="eyebrow">Overview · {{ current_user.role_label }}</div>
+    <h1>Infrastructure dashboard</h1>
+    <p class="lead">{% if current_user.is_admin %}All {{ towns|length }} towns in the system.{% else %}Your towns: {% for t in towns %}{{ t.name }}{% if not loop.last %}, {% endif %}{% endfor %}.{% endif %}
+      Figures are current counts from the CivicPulse database, whose assets are illustrative synthetic records (not live municipal data).</p>
+  </div>
+  <div class="actions">
+    <a class="btn btn-accent" href="{{ url_for('estimates.new') }}">New cost estimate {{ icon("arrow") }}</a>
+    <a class="btn btn-ghost" href="{{ url_for('assets.index') }}">Browse assets</a>
+  </div>
+</div>
+
+<div class="grid grid-4 kpis">
+  <div class="kpi kpi-yellow"><div class="kpi-label">Towns</div><div class="kpi-value">{{ towns|length }}</div>
+    <div class="kpi-note">{% if towns|length < total_towns %}of {{ total_towns }} in Paschim Bardhaman{% else %}Paschim Bardhaman district{% endif %}</div></div>
+  <div class="kpi"><div class="kpi-label">Infrastructure assets</div><div class="kpi-value">{{ stats.total_assets|num }}</div>
+    <div class="kpi-note">across 5 categories</div></div>
+  <div class="kpi"><div class="kpi-label">Poor or very bad (D/E)</div><div class="kpi-value">{{ poor }}</div>
+    <div class="kpi-note">{% if stats.total_assets %}{{ (100 * poor / stats.total_assets)|round(0)|int }}% of assets{% else %}–{% endif %}</div></div>
+  <div class="kpi"><div class="kpi-label">High or critical priority</div><div class="kpi-value">{{ urgent }}</div>
+    <div class="kpi-note">Decision Tree, latest assessments</div></div>
+</div>
+
+<div class="grid grid-main section">
+  <section class="card" aria-labelledby="cond-h">
+    <div class="card-head"><h2 id="cond-h">Condition grades</h2><span class="small">{{ stats.total_assets }} assets</span></div>
+    {{ stackbar(grade_stack, "Assets by condition grade") }}
+    <div class="table-wrap section">
+      <table class="table table-compact">
+        <thead><tr><th scope="col">Grade</th><th scope="col" class="num">Assets</th><th scope="col" class="num">Share</th></tr></thead>
+        <tbody>{% for p in grade_stack.pieces %}<tr><td>{{ grade_cell(p.label[0]) }}</td><td class="num">{{ p.value }}</td><td class="num">{{ p.share }}%</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </section>
+  <section class="card" aria-labelledby="prio-h">
+    <div class="card-head"><h2 id="prio-h">Maintenance priority</h2><span class="small">Decision Tree</span></div>
+    {{ bars(priority_rows) }}
+    <p class="hint section">Predicted at each asset's latest assessment. Labels in the training data were simulated expert decisions.</p>
+  </section>
+</div>
+
+<div class="grid grid-2 section">
+  <section class="card" aria-labelledby="cat-h">
+    <div class="card-head"><h2 id="cat-h">Assets by category</h2><a class="small" href="{{ url_for('assets.index') }}">Explore assets</a></div>
+    {{ bars(category_rows) }}
+    <p class="hint section">Units: Roads m² · Drainage metres · Streetlights units · Water supply pipelines metres · Public parks m².</p>
+  </section>
+  <section class="card" aria-labelledby="crit-h">
+    <div class="card-head"><h2 id="crit-h">Critical priority</h2><span class="small">{{ critical_total }} asset{{ "" if critical_total == 1 else "s" }}</span></div>
+    {% if critical %}
+    <ul class="list-plain">
+      {% for a, latest in critical %}
+      <li><span class="grade-cell">{{ grade(a.current_grade) }}<span><a href="{{ url_for('assets.detail', asset_id=a.id) }}" class="strong">{{ a.asset_code }}</a>
+        <span class="sub muted small">{{ a.category }} · {{ a.town.name }}</span></span></span>
+        <a class="btn btn-ghost btn-sm" href="{{ url_for('estimates.compare', asset_id=a.id) }}">Estimate</a></li>
+      {% endfor %}
+    </ul>
+    {% if critical_total > critical|length %}<p class="small section"><a href="{{ url_for('assets.index', grade='E') }}">Browse grade E (Very Bad) assets</a></p>{% endif %}
+    {% else %}{% call empty("No critical assets", "No asset in your towns is currently predicted as Critical.") %}{% endcall %}{% endif %}
+  </section>
+</div>
+
+<div class="grid grid-2 section">
+  <section class="card flush" aria-labelledby="est-h">
+    <div class="card-head"><h2 id="est-h">Recent estimates</h2><a class="small" href="{{ url_for('estimates.index') }}">All {{ estimate_count }} estimates</a></div>
+    {% if recent %}
+    <div class="table-wrap section">
+      <table class="table stack-sm">
+        <thead><tr><th scope="col">Asset</th><th scope="col">Upgrade</th><th scope="col" class="num">Estimate</th></tr></thead>
+        <tbody>{% for e in recent %}
+          <tr><td data-label="Asset"><a class="row-link" href="{{ url_for('estimates.detail', estimate_id=e.id) }}">{{ e.asset.asset_code }}</a><span class="sub">{{ e.created_at|ist }}</span></td>
+              <td data-label="Upgrade"><span class="grade-cell">{{ grade(e.current_grade) }}→{{ grade(e.target_grade) }}</span></td>
+              <td data-label="Estimate" class="num strong">{{ e.final_cost|inr }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    {% else %}{% call empty("No estimates yet", "Saved estimates for your towns will appear here.") %}<a class="btn btn-primary btn-sm" href="{{ url_for('estimates.new') }}">Create the first estimate</a>{% endcall %}{% endif %}
+  </section>
+  <section class="card flush" aria-labelledby="ins-h">
+    <div class="card-head"><h2 id="ins-h">Recent assessments</h2><span class="small">latest recorded</span></div>
+    <div class="table-wrap section">
+      <table class="table stack-sm">
+        <thead><tr><th scope="col">Asset</th><th scope="col">Grade</th><th scope="col">Priority</th></tr></thead>
+        <tbody>{% for s in recent_assessments %}
+          <tr><td data-label="Asset"><a class="row-link" href="{{ url_for('assets.detail', asset_id=s.asset.id) }}">{{ s.asset.asset_code }}</a><span class="sub">{{ s.assessed_on.strftime("%d %b %Y") }} · {{ s.source }}</span></td>
+              <td data-label="Grade">{{ grade_cell(s.grade) }}</td><td data-label="Priority">{{ priority(s.predicted_priority) }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<p class="hint section">Models verified at startup: {{ model.files_verified }} artifact files checked, golden samples {{ "reproduced" if model.golden.cost_matches and model.golden.priority_matches and model.golden.group_matches else "NOT reproduced" }}.
+  <a href="{{ url_for('analytics.index') }}">How the models work</a></p>
+{% endblock %}

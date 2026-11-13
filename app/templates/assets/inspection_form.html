@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_ui.html" import field, grade_cell %}
+{% block title %}Record inspection · {{ asset.asset_code }}{% endblock %}
+{% block description %}Record a new condition inspection for {{ asset.asset_code }}.{% endblock %}
+{% block content %}
+<div class="eyebrow"><a href="{{ url_for('assets.index') }}">Assets</a> / <a href="{{ url_for('assets.detail', asset_id=asset.id) }}">{{ asset.asset_code }}</a> / Inspection</div>
+<div class="page-head"><div><h1>Record inspection</h1>
+  <p class="lead">{{ asset.name }} · current condition {{ grade_cell(asset.current_grade) }}</p></div></div>
+<div class="grid grid-main">
+  <section class="card">
+    <form method="post" novalidate data-once>
+      {{ form.hidden_tag() }}
+      <div class="form-grid">
+        {{ field(form.assessed_on, required=True) }}
+        {{ field(form.grade, hint="The condition observed now. It can be worse than before if the asset has deteriorated.") }}
+        {{ field(form.damaged_share_pct, min=0, max=100, step="0.1", inputmode="decimal", required=True) }}
+        {{ field(form.years_since_maintenance, min=0, max=100, required=True) }}
+        {{ field(form.complaints_last_12m, min=0, max=1000, required=True) }}
+        <div class="span-2">{{ field(form.notes, maxlength=500, rows=3) }}</div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" data-busy-label="Saving…">Save inspection</button>
+        <a class="btn btn-ghost" href="{{ url_for('assets.detail', asset_id=asset.id) }}">Cancel</a>
+      </div>
+    </form>
+  </section>
+  <aside class="card"><h2>What happens</h2>
+    <p class="small">The server checks every value (dates, ranges, years since maintenance not exceeding the asset's age), saves the inspection, and the Decision Tree and K-Means models classify the new condition.</p>
+    <p class="small muted">Repair work that improved the asset is recorded separately, as a completed improvement.</p></aside>
+</div>
+{% endblock %}

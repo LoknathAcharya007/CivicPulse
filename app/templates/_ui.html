@@ -1,0 +1,79 @@
+{# Reusable UI pieces. Charts are SVG drawn from server data (no inline styles, CSP-safe). #}
+
+{% macro icon(name) -%}
+{%- if name == "logo" -%}<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#0C2131"/><rect y="54" width="64" height="10" fill="#F2C230"/><path d="M8 32h12l5-12 8 24 6-16 4 4h13" fill="none" stroke="#F2C230" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+{%- elif name == "menu" -%}<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+{%- elif name == "arrow" -%}<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+{%- elif name == "download" -%}<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+{%- elif name == "check" -%}<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+{%- elif name == "print" -%}<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2M7 14h10v6H7z"/></svg>
+{%- elif name == "empty" -%}<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h4"/></svg>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro grade(g, size="") -%}
+<span class="grade grade-{{ g }} {{ size }}" title="Grade {{ g }} – {{ g|grade_name }}" aria-label="Grade {{ g }}, {{ g|grade_name }}">{{ g }}</span>
+{%- endmacro %}
+
+{% macro grade_cell(g) -%}<span class="grade-cell">{{ grade(g) }}<span>{{ g|grade_name }}</span></span>{%- endmacro %}
+
+{% macro priority(p) -%}
+{%- if p -%}<span class="pill p-{{ p|lower|replace(' ', '-') }}">{{ p }}</span>{%- else -%}<span class="muted">–</span>{%- endif -%}
+{%- endmacro %}
+
+{% macro status(s) -%}
+{%- set cls = {"Official (third-party copy)": "status-official", "Verified official": "status-verified",
+               "Assumption": "status-assumption", "Unavailable": "status-unavailable"}.get(s, "status-official") -%}
+<span class="pill no-dot {{ cls }}">{% if s == "Assumption" %}ASSUMPTION{% else %}{{ s }}{% endif %}</span>
+{%- endmacro %}
+
+{% macro swatch(css) -%}<span class="swatch"><svg viewBox="0 0 10 10" aria-hidden="true"><rect class="{{ css }}" width="10" height="10"/></svg></span>{%- endmacro %}
+
+{% macro bars(rows, fmt=None, label_width="") -%}
+<div class="bars" role="list">
+  {% for r in rows %}
+  <div class="bar-row" role="listitem">
+    <span class="bar-label" title="{{ r.label }}">{{ r.label }}</span>
+    <svg class="bar" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="12" rx="2"/><rect class="bar-fill {{ r.css }}" width="{{ r.pct }}" height="12" rx="2"/></svg>
+    <span class="bar-value">{{ fmt(r.value) if fmt else r.value }}</span>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro stackbar(st, label="Distribution", legend=True) -%}
+<svg class="stack" viewBox="0 0 100 14" preserveAspectRatio="none" role="img" aria-label="{{ label }}: {% for p in st.pieces %}{{ p.label }} {{ p.value }}{% if not loop.last %}, {% endif %}{% endfor %}">
+  {% if st.total %}{% for p in st.pieces %}{% if p.w > 0 %}<rect class="{{ p.css }}" x="{{ p.x }}" width="{{ p.w }}" height="14"/>{% endif %}{% endfor %}
+  {% else %}<rect class="fill-muted" width="100" height="14"/>{% endif %}
+</svg>
+{% if legend %}<div class="legend">{% for p in st.pieces %}<span>{{ swatch(p.css) }}{{ p.label }} <strong>{{ p.value }}</strong></span>{% endfor %}</div>{% endif %}
+{%- endmacro %}
+
+{% macro field(f, hint=None) -%}
+<div class="field{% if f.errors %} has-error{% endif %}">
+  {% if f.type == "BooleanField" %}
+    <label class="checkbox">{{ f(**kwargs) }} {{ f.label.text }}</label>
+  {% else %}
+    {{ f.label }}
+    {{ f(**kwargs) }}
+  {% endif %}
+  {% if hint %}<p class="hint">{{ hint }}</p>{% endif %}
+  {% for e in f.errors %}<span class="error">{{ e }}</span>{% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro empty(title, text=None) -%}
+<div class="empty">{{ icon("empty") }}<h3>{{ title }}</h3>{% if text %}<p>{{ text }}</p>{% endif %}{{ caller() if caller else "" }}</div>
+{%- endmacro %}
+
+{% macro pager(p, endpoint, args) -%}
+{% if p.pages > 1 %}
+<nav class="pagination" aria-label="Pagination">
+  <span>Page {{ p.page }} of {{ p.pages }} · {{ p.total }} results</span>
+  <span class="actions">
+    {% if p.has_prev %}<a class="btn btn-ghost btn-sm" href="{{ url_for(endpoint, page=p.prev_num, **args) }}" rel="prev">Previous</a>{% endif %}
+    {% if p.has_next %}<a class="btn btn-ghost btn-sm" href="{{ url_for(endpoint, page=p.next_num, **args) }}" rel="next">Next</a>{% endif %}
+  </span>
+</nav>
+{% endif %}
+{%- endmacro %}

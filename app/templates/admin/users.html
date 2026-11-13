@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "_ui.html" import empty %}
+{% block title %}Users · Admin{% endblock %}
+{% block description %}Manage CivicPulse accounts, roles and town permissions.{% endblock %}
+{% block content %}
+{% set admin_title = "User accounts" %}{% set admin_lead = "Accounts are created only by administrators. Officials can access only the towns assigned to them." %}
+{% set admin_action_url = url_for('admin.new_user') %}{% set admin_action_label = "Create account" %}
+{% include "admin/_tabs.html" %}
+<section class="card flush">
+  <div class="table-wrap">
+    <table class="table stack-sm">
+      <thead><tr><th scope="col">User</th><th scope="col">Role</th><th scope="col">Towns</th><th scope="col">Status</th><th scope="col">Last login</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr></thead>
+      <tbody>{% for u in users %}
+        <tr><td data-label="User"><span class="strong">{{ u.username }}</span><span class="sub">{{ u.full_name }}</span></td>
+          <td data-label="Role">{{ u.role_label }}</td>
+          <td data-label="Towns">{% if u.is_admin %}All towns{% else %}{% for t in u.towns %}{{ t.name }}{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</td>
+          <td data-label="Status">{% if u.active %}<span class="pill status-verified">Active</span>{% else %}<span class="pill status-unavailable">Deactivated</span>{% endif %}</td>
+          <td data-label="Last login">{{ u.last_login_at|ist }}</td>
+          <td data-label="" class="num"><a class="btn btn-ghost btn-sm" href="{{ url_for('admin.edit_user', user_id=u.id) }}">Edit</a>
+            <a class="btn btn-ghost btn-sm" href="{{ url_for('admin.reset_password', user_id=u.id) }}">Reset password</a></td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

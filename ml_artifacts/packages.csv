@@ -1,0 +1,16 @@
+category,level,package,unit,unit_cost_inr,basis
+Roads,1,Surface renewal: tack coat + 25 mm premix carpet,m2,304.15,official DSR items
+Roads,2,Overlay: tack coat + 50 mm DBM + tack coat + 40 mm BC,m2,1059.93,official DSR items
+Roads,3,Reconstruction: 200 mm GSB + 250 mm WMM + 60 mm DBM + 40 mm BC,m2,2460.85,official DSR items
+Drainage,1,Desilting and minor repair,m,350.0,includes assumption
+Drainage,2,Relay with 300 mm RCC pipe + chamber every 30 m,m,1265.98,official DSR items
+Drainage,3,Rebuild with 450 mm RCC pipe + manhole every 30 m,m,3556.73,official DSR items
+Streetlights,1,LED luminaire replacement,units,6500.0,includes assumption
+Streetlights,2,Luminaire + bracket + cable,units,18000.0,includes assumption
+Streetlights,3,"New pole, foundation, luminaire and cable",units,55000.0,includes assumption
+Water supply pipelines,1,Leak repair + valve every 200 m,m,273.96,includes assumption
+Water supply pipelines,2,Replace 50% of pipe (150 mm DI) + valve and chamber every 250 m,m,966.12,official DSR items
+Water supply pipelines,3,Replace all pipe (150 mm DI) + valve and chamber every 250 m,m,1860.92,official DSR items
+Public parks,1,Turf repair and pruning,m2,120.0,includes assumption
+Public parks,2,Pave 15% (paths) + replanting,m2,395.8,includes assumption
+Public parks,3,Pave 20% + kerb channel 2% + landscaping and amenities,m2,879.47,includes assumption

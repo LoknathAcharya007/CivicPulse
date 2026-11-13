@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "_ui.html" import status %}
+{% block title %}Cost references · Admin{% endblock %}
+{% block description %}The finalized Phase 1 cost reference rates with sources, dates and verification status.{% endblock %}
+{% block content %}
+{% set admin_title = "Cost references" %}{% set admin_lead = "The finalized Phase 1 rate table. Composite rates already include material, labour, tools, carriage and contractor overheads, so labour and material are never added on top. Wage rows are reference only." %}
+{% include "admin/_tabs.html" %}
+{% include "estimates/_notice.html" %}
+<section class="card flush section">
+  <div class="table-wrap">
+    <table class="table table-compact stack-sm">
+      <thead><tr><th scope="col">Ref</th><th scope="col">Item</th><th scope="col" class="num">Rate</th><th scope="col">Status</th><th scope="col">Used</th><th scope="col">Source</th><th scope="col">Date · basis</th></tr></thead>
+      <tbody>{% for r in refs %}
+        <tr><td data-label="Ref" class="strong">{{ r.ref_id }}<span class="sub">{{ r.category }}</span></td>
+          <td data-label="Item">{{ r.description }}{% if r.item_code %}<span class="sub">{{ r.item_code }}</span>{% endif %}</td>
+          <td data-label="Rate" class="num">{{ (r.rate_inr|inr_paise) if r.rate_inr is not none else "Unavailable" }}{% if r.unit %}<span class="sub">per {{ r.unit }}</span>{% endif %}</td>
+          <td data-label="Status">{{ status(r.verification_status) }}<span class="sub">{{ r.rate_type }}</span></td>
+          <td data-label="Used">{{ "Yes" if r.used_in_cost_model else "No" }}</td>
+          <td data-label="Source">{{ r.source_document or "–" }}{% if r.source_url|http_url %} <a href="{{ r.source_url|http_url }}" rel="noopener noreferrer">link</a>{% endif %}</td>
+          <td data-label="Date">{{ r.document_date or "–" }}<span class="sub">{{ r.effective_or_price_basis or "" }}</span></td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

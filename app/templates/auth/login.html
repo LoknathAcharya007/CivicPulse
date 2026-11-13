@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "_ui.html" import field, icon %}
+{% block title %}Sign in{% endblock %}
+{% block description %}Sign in to CivicPulse, the infrastructure cost prediction platform for municipal officials in Paschim Bardhaman.{% endblock %}
+{% block shell %}
+<div class="auth-page">
+  <section class="auth-side" aria-label="About CivicPulse">
+    <div>
+      <span class="brand">{{ icon("logo") }}<span><span class="brand-name">CivicPulse</span><span class="brand-sub">Paschim Bardhaman</span></span></span>
+      <h1>Infrastructure cost prediction for municipal assets</h1>
+      <p>Estimate what it costs to raise roads, drains, streetlights, water pipelines and parks to a better condition grade, with every rate traced to its source.</p>
+      <ul class="auth-points">
+        <li>{{ icon("check") }}<span>Upgrade-only estimates with a transparent cost breakdown</span></li>
+        <li>{{ icon("check") }}<span>Maintenance priority and asset grouping from three machine-learning models</span></li>
+        <li>{{ icon("check") }}<span>Town-level access for municipal officials</span></li>
+      </ul>
+    </div>
+    <p class="auth-foot">FSP project, Team 13. Demonstration data is synthetic and illustrative.</p>
+  </section>
+  <main class="auth-main" id="main" tabindex="-1">
+    <div class="auth-card">
+      <h2>Sign in</h2>
+      <p class="muted">Use the account created for you by an administrator.</p>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}<div class="flash-stack" role="alert">
+          {% for category, m in messages %}<p class="flash {{ 'error-flash' if category == 'error' else '' }}">{{ m }}</p>{% endfor %}
+        </div>{% endif %}
+      {% endwith %}
+      <form method="post" novalidate data-once class="section">
+        {{ form.hidden_tag() }}
+        {{ field(form.username, autocomplete="username", autocapitalize="none", spellcheck="false", required=True, maxlength=40) }}
+        {{ field(form.password, autocomplete="current-password", required=True, maxlength=128) }}
+        <button type="submit" class="btn btn-primary btn-block" data-busy-label="Signing in…">Sign in</button>
+      </form>
+      <p class="hint section">Repeated failed attempts are temporarily blocked. Accounts are created by an administrator; there is no self sign-up.</p>
+    </div>
+  </main>
+</div>
+{% endblock %}

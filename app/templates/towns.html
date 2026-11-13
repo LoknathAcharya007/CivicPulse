@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% from "_ui.html" import stackbar, empty, icon %}
+{% block title %}Towns{% endblock %}
+{% block description %}Towns of Paschim Bardhaman in CivicPulse with population, coalfield status and infrastructure asset statistics.{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <div class="eyebrow">Town explorer · Paschim Bardhaman district, West Bengal</div>
+    <h1>Towns</h1>
+    <p class="lead">{% if permitted < total_towns %}You can access {{ permitted }} of the {{ total_towns }} towns.{% else %}All {{ total_towns }} towns.{% endif %}
+      Population and area are Census 2011 figures; asset statistics are current counts of the illustrative synthetic records, not live municipal data.</p>
+  </div>
+</div>
+
+<form class="filters" method="get" role="search" data-autosubmit aria-label="Filter towns">
+  <div class="field filter-search"><label for="q">Search towns</label><input type="search" id="q" name="q" value="{{ selected.q }}" maxlength="40" placeholder="Town name"></div>
+  <div class="field"><label for="class">Town class</label>
+    <select id="class" name="class"><option value="">All classes</option>
+      {% for c in town_classes %}<option {% if selected.class == c %}selected{% endif %}>{{ c }}</option>{% endfor %}</select></div>
+  <div class="field"><label for="coalfield">Coalfield area</label>
+    <select id="coalfield" name="coalfield"><option value="">Any</option>
+      <option value="yes" {% if selected.coalfield == "yes" %}selected{% endif %}>In coalfield</option>
+      <option value="no" {% if selected.coalfield == "no" %}selected{% endif %}>Outside coalfield</option></select></div>
+  <div class="field"></div>
+  <div class="filter-actions"><button type="submit" class="btn btn-primary">Apply</button>
+    {% if selected.q or selected.class or selected.coalfield %}<a class="btn btn-ghost" href="{{ url_for('dashboard.towns') }}">Clear</a>{% endif %}</div>
+</form>
+
+<p class="muted small" aria-live="polite">Showing {{ rows|length }} town{{ "" if rows|length == 1 else "s" }}.</p>
+{% if rows %}
+<div class="town-cards">
+  {% for r in rows %}{% set t = r.town %}
+  <article class="card town-card card-accent">
+    <div>
+      <h2><a href="{{ url_for('assets.index', town=t.id) }}">{{ t.name }}</a></h2>
+      <div class="town-meta section-tight">
+        <span class="tag">{{ t.town_class }}</span>
+        {% if t.in_coalfield %}<span class="tag tag-yellow">Coalfield area</span>{% endif %}
+        <span class="tag">{{ t.district }}</span>
+      </div>
+    </div>
+    <div class="town-stats">
+      <div><strong>{{ r.assets }}</strong><span>Assets</span></div>
+      <div><strong>{{ r.poor }}</strong><span>Grade D / E</span></div>
+      <div><strong>{{ r.urgent }}</strong><span>High / critical</span></div>
+    </div>
+    <div>
+      <p class="label">Condition grades</p>
+      {{ stackbar(r.stack, "Condition grades in " ~ t.name) }}
+    </div>
+    <dl class="facts">
+      <div><dt>Population (2011)</dt><dd>{{ t.population_2011|num }}</dd></div>
+      <div><dt>Area</dt><dd>{{ t.area_km2|num(2) }} km²</dd></div>
+      <div><dt>Saved estimates</dt><dd>{{ r.estimated_assets }} asset{{ "" if r.estimated_assets == 1 else "s" }}</dd></div>
+      <div><dt>Latest estimates total</dt><dd>{{ r.estimate_total|inr if r.estimated_assets else "–" }}</dd></div>
+    </dl>
+    <div class="card-foot">
+      <span>{% for c, n in r.categories.items() if n %}{{ c }} {{ n }}{% if not loop.last %} · {% endif %}{% endfor %}</span>
+    </div>
+    <a class="btn btn-ghost btn-block" href="{{ url_for('assets.index', town=t.id) }}">View {{ t.name }} assets {{ icon("arrow") }}</a>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<div class="card">{% call empty("No towns match", "Try a different name or clear the filters.") %}<a class="btn btn-ghost btn-sm" href="{{ url_for('dashboard.towns') }}">Clear filters</a>{% endcall %}</div>
+{% endif %}
+{% endblock %}

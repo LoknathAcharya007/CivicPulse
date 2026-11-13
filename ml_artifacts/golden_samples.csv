@@ -1,0 +1,11 @@
+record_id,town,town_class,in_coalfield,asset_category,quantity,asset_age_years,years_since_maintenance,current_grade,damaged_share_pct,population_served,complaints_last_12m,target_grade,expected_cost_inr,expected_priority,expected_group
+AR02191,Bilpahari,Census town,Yes,Roads,6051.7,16.0,0,D,54.3,2202.0,5.0,C,2710088.47,Moderate,2
+AR02367,Dignala,Census town,Yes,Drainage,457.2,26.0,7,D,58.6,1625.0,9.0,A,1511169.5,High,3
+AR00786,Asansol,Municipal corporation,Yes,Roads,2857.2,11.0,4,C,41.5,11241.0,2.0,A,2801260.33,Moderate,2
+AR01955,Asansol,Municipal corporation,Yes,Roads,3655.1,9.0,2,C,40.9,1854.0,6.0,A,3476399.11,Moderate,2
+AR02771,Durgapur,Municipal corporation,No,Public parks,2291.0,27.0,0,C,29.5,2714.0,4.0,B,363666.26,Low,2
+AR02958,Mandarbani,Census town,Yes,Roads,5104.0,26.0,2,D,56.0,2368.0,6.0,B,5201850.91,Moderate,0
+AR01391,Andal,Census town,Yes,Roads,895.3,20.0,8,E,90.8,4316.0,11.0,C,1198484.16,Critical,3
+AR00130,Durgapur,Municipal corporation,No,Public parks,3911.2,21.0,7,C,12.2,6633.0,2.0,B,552403.12,Low,2
+AR01447,Durgapur,Municipal corporation,No,Public parks,10433.4,28.0,8,E,78.9,42643.0,6.0,B,8418114.7,Critical,3
+AR00150,Andal,Census town,Yes,Roads,2215.9,25.0,2,E,72.1,818.0,9.0,A,12278055.09,High,0

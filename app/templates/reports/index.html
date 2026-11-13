@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "_ui.html" import bars, stackbar, icon, swatch %}
+{% block title %}Reports{% endblock %}
+{% block description %}Town-level infrastructure condition and estimate report with CSV export.{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><div class="eyebrow">Reports</div><h1>Town report</h1>
+    <p class="lead">Condition, priority and saved-estimate totals for each of your towns. "Latest estimates" adds up the most recent saved estimate per asset.</p></div>
+  <div class="actions"><a class="btn btn-primary" href="{{ url_for('reports.estimates_csv') }}">{{ icon("download") }}Download estimates CSV</a></div>
+</div>
+<div class="grid grid-4 kpis">
+  <div class="kpi"><div class="kpi-label">Assets</div><div class="kpi-value">{{ totals.assets }}</div></div>
+  <div class="kpi"><div class="kpi-label">Grade D or E</div><div class="kpi-value">{{ totals.poor }}</div></div>
+  <div class="kpi"><div class="kpi-label">High or critical</div><div class="kpi-value">{{ totals.urgent }}</div></div>
+  <div class="kpi kpi-yellow"><div class="kpi-label">Latest estimates total</div><div class="kpi-value">{{ totals.spend|inr }}</div><div class="kpi-note">{{ totals.estimated }} asset{{ "" if totals.estimated == 1 else "s" }} estimated</div></div>
+</div>
+<section class="card flush section" aria-labelledby="town-h">
+  <div class="card-head"><h2 id="town-h">By town</h2><span class="legend">{{ swatch("fill-E") }}Grade D or E {{ swatch("fill-muted") }}Grade A–C</span></div>
+  <div class="table-wrap section">
+    <table class="table stack-sm">
+      <thead><tr><th scope="col">Town</th><th scope="col" class="num">Assets</th><th scope="col">Poor share</th><th scope="col" class="num">D/E</th><th scope="col" class="num">High/critical</th><th scope="col" class="num">Estimated</th><th scope="col" class="num">Latest estimates</th></tr></thead>
+      <tbody>{% for r in rows %}
+        <tr><td data-label="Town"><a class="row-link" href="{{ url_for('assets.index', town=r.town.id) }}">{{ r.town.name }}</a><span class="sub">{{ r.town.town_class }}</span></td>
+          <td data-label="Assets" class="num">{{ r.assets }}</td>
+          <td data-label="Poor share">{{ stackbar(r.stack, "Poor share in " ~ r.town.name, legend=False) }}</td>
+          <td data-label="D/E" class="num">{{ r.poor_or_very_bad }}</td><td data-label="High/critical" class="num">{{ r.high_or_critical }}</td>
+          <td data-label="Estimated" class="num">{{ r.estimated_assets }}</td><td data-label="Latest estimates" class="num strong">{{ r.estimate_total|inr if r.estimated_assets else "–" }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+</section>
+<div class="grid grid-2 section">
+  <section class="card"><div class="card-head"><h2>Latest estimates by town</h2></div>
+    {% if spend %}{{ bars(spend, fmt=format_inr) }}{% else %}<p class="muted">No estimates saved yet.</p>{% endif %}</section>
+  <section class="card"><div class="card-head"><h2>Assets by category</h2></div>
+    <table class="table table-compact"><tbody>{% for c, n in stats.by_category %}<tr><td>{{ c }}</td><td class="num">{{ n }}</td></tr>{% endfor %}</tbody></table></section>
+</div>
+{% endblock %}

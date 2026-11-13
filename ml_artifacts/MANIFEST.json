@@ -1,0 +1,17 @@
+{
+  "assessment_records_clean.csv": "997e1cc722ef159b950a7f911a70f8e3aad4fa269365d0136b3330ad1b9d09ae",
+  "assessment_records_raw.csv": "3d1aad0b1f6a7f8a1cb9faab286f96ff2411e3059dd5e3bc9d245c53b90e19f5",
+  "asset_register.csv": "6948188fd2457a68c65e55d196a6afc4d83f90f40526c1f1838976df3d1cd9bf",
+  "cost_references.csv": "ec26dcd82450daa1ee3371421134833006293269a2cac626e3668fb1324a8721",
+  "decision_tree.joblib": "6be7b2b831ad73caa81cbc211cf362a3f7ff50fe6f62ddb15b497850c47f5a81",
+  "encoders.joblib": "339d867f0a406f9e63611defca2118855a1e2d1d0527af2a86b88fa06dffeead",
+  "evaluation_report.md": "9c92bf60a3bb38ab7c7ede65a7b3efd543ffa67b0067b1845f121d2e108b63f8",
+  "feature_spec.json": "22bfcc1f404a4c99aa4506c8a0c98855fd2b025bb57eb9023527e9ce5b7a323f",
+  "golden_samples.csv": "69922e0f5cb494fdbf736f9d12732f2a53cae575ad6b8fa91d50beb6a1dfd0cc",
+  "kmeans.joblib": "160f476882903894d218fad228049e006abf6919d816cad2a5ab13f14fc6756d",
+  "linear_regression.joblib": "317b7189f54548ff1e517d7da9b30b55c62c37fe8ad3ca5132f59bf54e4adae3",
+  "packages.csv": "e5cc2a22ad2f2d221e188eb7851acf28ff90ed13e763cbf3808a901678058e7f",
+  "predictions_test_and_holdout.csv": "60fd801a65f4d4c6db9e2e8746a6b6a97b11f6c27ca675276b072024ed9c453d",
+  "preprocessing.py": "b28e4592d3598effd8691589144a7d636df97c3bb246c470d11aad8ed4d4fce9",
+  "towns.csv": "0f3f2b4ba643c2f43601dca3283aedf750dbeb503d8cbd4b78749c4da9c49a31"
+}

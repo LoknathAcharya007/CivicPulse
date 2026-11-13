@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% from "_ui.html" import grade, priority, icon %}
+{% block title %}Estimate #{{ estimate.id }}{% endblock %}
+{% block description %}Saved improvement cost estimate #{{ estimate.id }} with its full breakdown and rate sources.{% endblock %}
+{% block content %}
+<ol class="steps no-print" aria-label="Estimate steps"><li class="done">Choose asset</li><li class="done">Choose target grade</li><li class="done">Review breakdown</li><li class="done">Saved</li></ol>
+<div class="page-head">
+  <div>
+    <div class="eyebrow"><a href="{{ url_for('estimates.index') }}">Estimates</a> / #{{ estimate.id }}</div>
+    <h1>Estimate #{{ estimate.id }} · {{ estimate.asset.asset_code }}</h1>
+    <p class="lead">{{ estimate.asset.name }} · {{ estimate.asset.category }} · {{ estimate.quantity|num(1) }} {{ estimate.unit|unit_label }}</p>
+  </div>
+  <div class="actions no-print">
+    <button type="button" class="btn btn-ghost" data-print>{{ icon("print") }}Print</button>
+    <a class="btn btn-ghost" href="{{ url_for('assets.detail', asset_id=estimate.asset.id) }}">Asset details</a>
+    {% if estimate.asset.current_grade != "A" %}<a class="btn btn-primary" href="{{ url_for('estimates.compare', asset_id=estimate.asset.id) }}">New estimate for this asset</a>{% endif %}
+  </div>
+</div>
+
+<div class="grid grid-main">
+  <section class="card" aria-labelledby="bd-h">
+    <div class="section-head"><h2 id="bd-h">Cost breakdown</h2></div>
+    {% with lines=estimate.breakdown.lines %}{% include "estimates/_lines.html" %}{% endwith %}
+  </section>
+  <div class="grid sticky-col">
+    <div class="total-box"><div class="small">Final estimated expenditure</div><div class="total-figure">{{ estimate.final_cost|inr }}</div>
+      <div class="small"><span class="grade-cell">{{ grade(estimate.current_grade) }} → {{ grade(estimate.target_grade) }}</span> {{ estimate.current_grade|grade_name }} to {{ estimate.target_grade|grade_name }}</div></div>
+    <section class="card" aria-labelledby="meta-h">
+      <h2 id="meta-h">Record</h2>
+      <dl class="facts">
+        <div><dt>Saved</dt><dd>{{ estimate.created_at|ist }}</dd></div>
+        <div><dt>By</dt><dd>{{ estimate.created_by.full_name }} ({{ estimate.created_by.username }})</dd></div>
+        <div><dt>Town</dt><dd>{{ estimate.asset.town.name }}</dd></div>
+        <div><dt>Priority</dt><dd>{{ priority(estimate.predicted_priority) }}</dd></div>
+        <div><dt>Asset group</dt><dd>{{ group_name }}</dd></div>
+        <div><dt>Contingency</dt><dd>{{ "%g"|format(estimate.contingency_percent) }}% (assumption)</dd></div>
+        <div><dt>Price-level factor</dt><dd>{{ "%.4f"|format(estimate.price_index_factor) }}</dd></div>
+        <div><dt>Model set</dt><dd><code title="{{ estimate.model_manifest_sha256 }}">{{ estimate.model_manifest_sha256[:12] }}…</code></dd></div>
+      </dl>
+    </section>
+  </div>
+</div>
+
+<div class="section">{% include "estimates/_notice.html" %}</div>
+
+<section class="card section">{% with rc=estimate.breakdown.reference_check %}{% include "estimates/_refcheck.html" %}{% endwith %}</section>
+
+<section class="card section" aria-labelledby="in-h">
+  <h2 id="in-h">Model inputs used</h2>
+  <p class="small muted">Rates, amounts and inputs on this page are the values stored when the estimate was saved; later changes to reference data do not alter them.</p>
+  <dl class="facts">{% for k, v in estimate.input_snapshot.items() %}<div><dt>{{ k|replace("_", " ") }}</dt><dd>{{ v }}</dd></div>{% endfor %}</dl>
+</section>
+{% endblock %}

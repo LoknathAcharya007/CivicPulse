@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from "_ui.html" import field, grade_cell %}
+{% block title %}Record improvement · {{ asset.asset_code }}{% endblock %}
+{% block description %}Record completed improvement work that raised the condition grade of {{ asset.asset_code }}.{% endblock %}
+{% block content %}
+<div class="eyebrow"><a href="{{ url_for('assets.index') }}">Assets</a> / <a href="{{ url_for('assets.detail', asset_id=asset.id) }}">{{ asset.asset_code }}</a> / Improvement</div>
+<div class="page-head"><div><h1>Record completed improvement</h1>
+  <p class="lead">{{ asset.name }} · current condition {{ grade_cell(asset.current_grade) }}</p></div></div>
+<div class="grid grid-main">
+  <section class="card">
+    <form method="post" novalidate data-once data-upgrade-form data-current-grade="{{ asset.current_grade }}">
+      {{ form.hidden_tag() }}
+      <div class="form-grid">
+        {{ field(form.performed_on, required=True) }}
+        {{ field(form.to_grade, hint="Only grades better than " ~ asset.current_grade ~ " are offered.", **{"data-target-grade": "1"}) }}
+        {{ field(form.damaged_share_pct, min=0, max=100, step="0.1", inputmode="decimal", required=True) }}
+        {{ field(form.actual_cost_inr, min=0, step="0.01", inputmode="decimal") }}
+        <div class="span-2">{{ field(form.description, maxlength=500, rows=3, required=True) }}</div>
+      </div>
+      <p class="error" data-upgrade-message hidden></p>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" data-busy-label="Saving…">Save improvement</button>
+        <a class="btn btn-ghost" href="{{ url_for('assets.detail', asset_id=asset.id) }}">Cancel</a>
+      </div>
+    </form>
+  </section>
+  <aside class="card"><h2>Upgrade-only rule</h2>
+    <p class="small">A downgrade is rejected four times over: this form only offers better grades, the browser checks before sending, the server validates, and the database refuses it.</p></aside>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% from "_ui.html" import grade, grade_cell, priority, icon %}
+{% block title %}Estimate · {{ asset.asset_code }}{% endblock %}
+{% block description %}Compare improvement cost estimates for {{ asset.asset_code }} and save one.{% endblock %}
+{% block content %}
+{% set by_target = {} %}{% for s in scenarios %}{% set _ = by_target.update({s.target_grade: s}) %}{% endfor %}
+<ol class="steps" aria-label="Estimate steps"><li class="done"><a href="{{ url_for('estimates.new') }}">Choose asset</a></li><li class="now" aria-current="step">Choose target grade</li><li>Review breakdown</li><li>Save estimate</li></ol>
+
+<section class="card card-accent asset-hero" aria-labelledby="asset-h">
+  {{ grade(asset.current_grade, "grade-lg") }}
+  <div>
+    <div class="eyebrow">Improvement cost estimate</div>
+    <h1 id="asset-h">{{ asset.asset_code }}</h1>
+    <div class="meta"><span>{{ asset.name }}</span><span>{{ asset.category }}</span><span><strong>{{ asset.quantity|num(1) }}</strong> {{ asset.unit|unit_label }}</span>
+      <span>Current: {{ latest.grade }} – {{ latest.grade|grade_name }} (assessed {{ latest.assessed_on.strftime("%d %b %Y") }})</span></div>
+  </div>
+  <div class="actions"><a class="btn btn-ghost" href="{{ url_for('assets.detail', asset_id=asset.id) }}">Asset details</a></div>
+</section>
+
+<div class="section">{% include "estimates/_notice.html" %}</div>
+
+{% if scenarios %}
+<form method="post" novalidate data-once data-scenarios data-upgrade-form data-current-grade="{{ asset.current_grade }}" class="section" aria-labelledby="opt-h">
+  {{ form.hidden_tag() }}
+  <fieldset class="options">
+    <legend id="opt-h">Target condition grade — upgrades only</legend>
+    {% for opt in form.target_grade %}{% set s = by_target[opt.data] %}
+    <div class="option">
+      {{ opt(checked=(opt.data == selected)) }}
+      <label class="option-body" for="{{ opt.id }}">
+        <span class="option-top">{{ grade(latest.grade) }} → {{ grade(opt.data) }} {{ opt.data|grade_name }}</span>
+        <span class="option-price">{{ s.final_cost|inr }}</span>
+        <span class="option-sub">{{ s.grades_gained }} grade{{ "" if s.grades_gained == 1 else "s" }} up · base {{ s.ml_base_cost|inr }}</span>
+      </label>
+    </div>
+    {% endfor %}
+  </fieldset>
+  {% for e in form.target_grade.errors %}<p class="error">{{ e }}</p>{% endfor %}
+  <p class="error" data-upgrade-message hidden></p>
+
+  {% for s in scenarios %}
+  <section class="card section" data-scenario="{{ s.target_grade }}" {% if s.target_grade != selected %}hidden{% endif %} aria-label="Breakdown for {{ s.current_grade }} to {{ s.target_grade }}">
+    <div class="grid grid-main">
+      <div>
+        <div class="section-head"><h2>Breakdown: {{ s.current_grade }} → {{ s.target_grade }}</h2></div>
+        {% with lines=s.lines %}{% include "estimates/_lines.html" %}{% endwith %}
+      </div>
+      <div class="grid sticky-col">
+        <div class="total-box"><div class="small">Final estimated expenditure</div><div class="total-figure">{{ s.final_cost|inr }}</div>
+          <div class="small">{{ asset.quantity|num(1) }} {{ asset.unit|unit_label }} · {{ s.current_grade }} → {{ s.target_grade }}</div></div>
+        <div class="card">
+          <div class="model-tag small muted">Models at this assessment</div>
+          <p class="section-tight">Priority {{ priority(s.predicted_priority) }}</p>
+          <p class="small">Group: <strong>{{ s.predicted_group_name }}</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="section">{% with rc=s.reference_check %}{% include "estimates/_refcheck.html" %}{% endwith %}</div>
+  </section>
+  {% endfor %}
+
+  <div class="form-actions section">
+    <button type="submit" class="btn btn-accent" data-save-label="Save estimate {{ latest.grade }} → {grade}" data-busy-label="Saving estimate…">Save estimate</button>
+    <a class="btn btn-ghost" href="{{ url_for('estimates.new') }}">Choose another asset</a>
+  </div>
+  <p class="hint">Saving stores the amounts computed on the server, the model inputs, every rate's source and date, your name and the time. Later changes to reference data never alter a saved estimate.</p>
+</form>
+{% else %}
+<div class="card section"><p class="notice">This asset is already grade A (Very Good). There is no better grade to estimate.</p></div>
+{% endif %}
+{% endblock %}

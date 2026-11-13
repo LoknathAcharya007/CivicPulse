@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% from "_ui.html" import bars, swatch %}
+{% block title %}Analytics{% endblock %}
+{% block description %}How CivicPulse's Linear Regression, Decision Tree and K-Means models perform on the synthetic Phase 1 dataset.{% endblock %}
+{% block content %}
+{% set lr = m.linear_regression %}{% set dt = m.decision_tree %}
+<div class="page-head">
+  <div><div class="eyebrow">Machine learning · Phase 1 models</div><h1>Model analytics</h1>
+    <p class="lead">The three models behind CivicPulse, evaluated in the Phase 1 Colab notebook. Metrics, charts and group profiles are read from the verified Phase 1 artifacts; nothing is retrained in the app. The two “Your assets” panels show how the same models classify the current (synthetic) records.</p></div>
+</div>
+<div class="notice notice-warn"><p><strong>Synthetic data.</strong> The models were trained and tested on a generated dataset, so these metrics show how well they learned that data.
+  They do <strong>not</strong> establish real-world accuracy for municipal infrastructure in Paschim Bardhaman. Priority labels are simulated expert decisions.</p></div>
+
+<section class="section" aria-labelledby="data-h">
+  <div class="section-head"><h2 id="data-h">Dataset</h2></div>
+  <div class="grid grid-4 kpis">
+    <div class="kpi"><div class="kpi-label">Generated records</div><div class="kpi-value">{{ a.raw_rows|num }}</div><div class="kpi-note">incl. deliberate errors and duplicates</div></div>
+    <div class="kpi"><div class="kpi-label">After cleaning</div><div class="kpi-value">{{ (a.splits.values()|sum)|num }}</div><div class="kpi-note">train {{ a.splits["train"]|num }} · test {{ a.splits["test"] }} · held-out {{ a.splits["held-out towns"] }}</div></div>
+    <div class="kpi"><div class="kpi-label">Held-out towns</div><div class="kpi-value">{{ a.holdout_towns|length }}</div><div class="kpi-note">{{ a.holdout_towns|join(", ") }} — never seen in training</div></div>
+    <div class="kpi"><div class="kpi-label">Random seed</div><div class="kpi-value">{{ a.seed }}</div><div class="kpi-note">reproducible notebook run</div></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="lr-h">
+  <div class="section-head"><div><h2 id="lr-h">Linear Regression — improvement cost</h2>
+    <p>Predicts log(cost) from log(quantity), current and target grade, damaged share, asset age, town type (coalfield area, municipal corporation) and category; the app converts back with exp(). Baseline: median rate per unit × quantity.</p></div></div>
+  <div class="grid grid-main">
+    <div class="card">
+      <div class="card-head"><h3>Actual vs predicted cost</h3><span class="small">₹ lakh, log scale · {{ a.costed_counts["test"] }} test + {{ a.costed_counts["held-out towns"] }} held-out projects</span></div>
+      <div class="chart-box">
+        <svg class="chart" viewBox="0 0 {{ scatter.width }} {{ scatter.height }}" role="img" aria-label="Scatter plot of actual versus predicted improvement cost; points lie close to the diagonal.">
+          {% for t in scatter.ticks %}
+            <line class="grid-line" x1="{{ scatter.left }}" x2="{{ scatter.right }}" y1="{{ t.y }}" y2="{{ t.y }}"/>
+            <line class="grid-line" x1="{{ t.x }}" x2="{{ t.x }}" y1="{{ scatter.top }}" y2="{{ scatter.bottom }}"/>
+            <text x="{{ scatter.left - 8 }}" y="{{ t.y + 4 }}" text-anchor="end">{{ t.label }}</text>
+            <text x="{{ t.x }}" y="{{ scatter.bottom + 18 }}" text-anchor="middle">{{ t.label }}</text>
+          {% endfor %}
+          <line class="axis" x1="{{ scatter.left }}" x2="{{ scatter.left }}" y1="{{ scatter.top }}" y2="{{ scatter.bottom }}"/>
+          <line class="axis" x1="{{ scatter.left }}" x2="{{ scatter.right }}" y1="{{ scatter.bottom }}" y2="{{ scatter.bottom }}"/>
+          <line class="diag" x1="{{ scatter.diag.x1 }}" y1="{{ scatter.diag.y1 }}" x2="{{ scatter.diag.x2 }}" y2="{{ scatter.diag.y2 }}"/>
+          {% for p in scatter.points["test"] %}<circle class="dot dot-test" cx="{{ p.x }}" cy="{{ p.y }}" r="3.4"/>{% endfor %}
+          {% for p in scatter.points["held-out towns"] %}<circle class="dot dot-holdout" cx="{{ p.x }}" cy="{{ p.y }}" r="3.4"/>{% endfor %}
+          <text class="axis-title" x="{{ (scatter.left + scatter.right) / 2 }}" y="{{ scatter.height - 6 }}" text-anchor="middle">Actual cost (₹ lakh)</text>
+          <text class="axis-title" transform="translate(14 {{ (scatter.top + scatter.bottom) / 2 }}) rotate(-90)" text-anchor="middle">Predicted (₹ lakh)</text>
+        </svg>
+      </div>
+      <div class="legend"><span><svg class="swatch" viewBox="0 0 10 10" aria-hidden="true"><circle class="dot-test" cx="5" cy="5" r="4"/></svg>Test set</span>
+        <span><svg class="swatch" viewBox="0 0 10 10" aria-hidden="true"><circle class="dot-holdout" cx="5" cy="5" r="4"/></svg>Held-out towns</span>
+        <span><svg class="swatch" viewBox="0 0 10 10" aria-hidden="true"><line class="diag" x1="0" y1="5" x2="10" y2="5" stroke="#D9A812" stroke-width="2"/></svg>Perfect prediction</span></div>
+    </div>
+    <div class="grid">
+      {% for key, label in [("test", "Test set"), ("held-out towns", "Held-out towns")] %}
+      {% set mm = lr["Linear Regression (" ~ key ~ ")"] %}{% set bb = lr["Baseline (" ~ key ~ ")"] %}
+      <div class="card"><div class="card-head"><h3>{{ label }}</h3></div>
+        <div class="metric-row">
+          <div class="metric"><div class="m-label">R²</div><div class="m-value">{{ "%.3f"|format(mm.R2) }}</div><div class="m-base">baseline {{ "%.3f"|format(bb.R2) }}</div></div>
+          <div class="metric"><div class="m-label">MAPE</div><div class="m-value">{{ "%.1f"|format(mm["MAPE_%"]) }}%</div><div class="m-base">baseline {{ "%.1f"|format(bb["MAPE_%"]) }}%</div></div>
+          <div class="metric"><div class="m-label">MAE</div><div class="m-value">{{ "%.2f"|format(mm.MAE_lakh) }}</div><div class="m-base">₹ lakh · base {{ "%.2f"|format(bb.MAE_lakh) }}</div></div>
+          <div class="metric"><div class="m-label">RMSE</div><div class="m-value">{{ "%.2f"|format(mm.RMSE_lakh) }}</div><div class="m-base">₹ lakh · base {{ "%.2f"|format(bb.RMSE_lakh) }}</div></div>
+        </div></div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="card section">
+    <div class="card-head"><h3>What drives the cost</h3><span class="small">% change in cost per one-unit increase, all else equal</span></div>
+    <div class="bars bars-wide" role="list">
+      {% for r in effects %}
+      <div class="bar-row" role="listitem"><span class="bar-label" title="{{ r.label }}">{{ r.label }}</span>
+        <svg class="bar" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="12"/><rect class="bar-fill {{ r.css }}" x="{{ r.x }}" width="{{ r.w }}" height="12"/><rect class="fill-yellow" x="49.8" width="0.4" height="12"/></svg>
+        <span class="bar-value">{{ "%+.1f"|format(r.value) }}%</span></div>
+      {% endfor %}
+    </div>
+    <p class="hint section">Quantity enters as log(quantity): elasticity {{ "%.3f"|format(elasticity.coefficient) }} (doubling the quantity raises cost by about {{ ((2 ** elasticity.coefficient - 1) * 100)|round(0)|int }}%). Category effects are relative to Roads; units differ between categories.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="dt-h">
+  <div class="section-head"><div><h2 id="dt-h">Decision Tree — maintenance priority</h2>
+    <p>Classifies assets into five priority levels from condition grade, damaged share, asset age, years since maintenance, complaints, population served (log) and category. Depth {{ a.tree_depth }} chosen by 5-fold cross-validation on training data. Baseline: a tree using condition grade only.</p></div></div>
+  <div class="grid grid-4">
+    {% for key, label in [("test", "Test set"), ("held-out towns", "Held-out towns")] %}
+    {% set mm = dt["Decision Tree (" ~ key ~ ")"] %}{% set bb = dt["Condition-only (" ~ key ~ ")"] %}
+    <div class="kpi"><div class="kpi-label">Accuracy · {{ label }}</div><div class="kpi-value">{{ (mm.accuracy * 100)|round(1) }}%</div><div class="kpi-note">condition-only {{ (bb.accuracy * 100)|round(1) }}% · chance 20%</div></div>
+    <div class="kpi"><div class="kpi-label">Within one level · {{ label }}</div><div class="kpi-value">{{ (mm.within_one_level * 100)|round(1) }}%</div><div class="kpi-note">condition-only {{ (bb.within_one_level * 100)|round(1) }}%</div></div>
+    {% endfor %}
+  </div>
+  <div class="grid grid-2 section">
+    <div class="card">
+      <div class="card-head"><h3>Confusion matrix · test set</h3><span class="small">rows: simulated label · columns: predicted</span></div>
+      <div class="table-wrap"><table class="cm">
+        <thead><tr><th></th>{% for c in order %}<th scope="col">{{ c }}</th>{% endfor %}</tr></thead>
+        <tbody>{% for row in confusion["test"] %}<tr><th scope="row" class="row-h">{{ order[loop.index0] }}</th>
+          {% for cell in row %}<td class="{{ cell.css }}{{ ' diag-cell' if cell.diag else '' }}">{{ cell.n }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+      </table></div>
+      <div class="table-wrap section"><table class="table table-compact">
+        <thead><tr><th scope="col">Class</th><th scope="col" class="num">Precision</th><th scope="col" class="num">Recall</th><th scope="col" class="num">Support</th></tr></thead>
+        <tbody>{% for r in a.per_class["test"] %}<tr><td>{{ r["class"] }}</td><td class="num">{{ "%.3f"|format(r.precision) }}</td><td class="num">{{ "%.3f"|format(r.recall) }}</td><td class="num">{{ r.support }}</td></tr>{% endfor %}</tbody>
+      </table></div>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="card-head"><h3>Feature importance</h3><span class="small">share of the tree's splits</span></div>
+        <div class="bars bars-wide" role="list">{% for r in importance %}<div class="bar-row" role="listitem"><span class="bar-label" title="{{ r.label }}">{{ r.label }}</span>
+          <svg class="bar" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="12"/><rect class="bar-fill {{ r.css }}" width="{{ r.pct }}" height="12"/></svg>
+          <span class="bar-value">{{ (r.value * 100)|round(1) }}%</span></div>{% endfor %}</div>
+      </div>
+      <div class="card"><div class="card-head"><h3>Your assets today</h3><span class="small">{{ live_total }} latest assessments</span></div>
+        {{ bars(priority_rows) }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="km-h">
+  <div class="section-head"><div><h2 id="km-h">K-Means — asset groups</h2>
+    <p>Groups assets by condition, damage, age, years since maintenance and complaints (standardised). K = {{ a.k }} chosen with the Elbow Method; group names come from each group's average profile.</p></div></div>
+  <div class="grid grid-2">
+    <div class="card"><div class="card-head"><h3>Elbow Method</h3><span class="small">inertia for K = 1 … {{ a.inertias|length }}</span></div>
+      <div class="chart-box">
+        <svg class="chart" viewBox="0 0 {{ elbow.width }} {{ elbow.height }}" role="img" aria-label="Elbow chart: inertia falls steeply until K equals {{ a.k }} and flattens afterwards.">
+          {% for t in elbow.yticks %}<line class="grid-line" x1="{{ elbow.left }}" x2="{{ elbow.right }}" y1="{{ t.y }}" y2="{{ t.y }}"/>
+            <text x="{{ elbow.left - 8 }}" y="{{ t.y + 4 }}" text-anchor="end">{{ t.v|num }}</text>{% endfor %}
+          <line class="axis" x1="{{ elbow.left }}" x2="{{ elbow.right }}" y1="{{ elbow.bottom }}" y2="{{ elbow.bottom }}"/>
+          <polyline class="line" points="{{ elbow.path }}"/>
+          {% for p in elbow.points %}<circle class="{{ 'pt-hi' if p.hi else 'pt' }}" cx="{{ p.x }}" cy="{{ p.y }}" r="{{ 7 if p.hi else 4 }}"/>
+            <text x="{{ p.x }}" y="{{ elbow.bottom + 18 }}" text-anchor="middle">{{ p.label }}</text>{% endfor %}
+          <text class="axis-title" x="{{ (elbow.left + elbow.right) / 2 }}" y="{{ elbow.height - 4 }}" text-anchor="middle">Number of groups (K)</text>
+        </svg>
+      </div></div>
+    <div class="card"><div class="card-head"><h3>Your assets by group</h3><span class="small">K-Means, latest assessments</span></div>
+      {{ bars(group_rows) }}
+      <p class="hint section">Each asset is assigned to the nearest group centre after the same scaling used in Phase 1.</p></div>
+  </div>
+  <div class="grid grid-4 section">
+    {% for g in profiles %}
+    <article class="card cluster cluster-{{ g.group }}">
+      <div class="model-tag small muted">Group {{ g.group }}</div>
+      <h3>{{ g.name }}</h3>
+      <dl class="facts">
+        <div><dt>Avg. condition</dt><dd>{{ g.current_level }} <span class="unit">(E=0 … A=4)</span></dd></div>
+        <div><dt>Damaged</dt><dd>{{ g.damaged_share_pct }}%</dd></div>
+        <div><dt>Age</dt><dd>{{ g.asset_age_years }} yr</dd></div>
+        <div><dt>Since maint.</dt><dd>{{ g.years_since_maintenance }} yr</dd></div>
+        <div><dt>Complaints</dt><dd>{{ g.complaints_last_12m }} / yr</dd></div>
+        <div><dt>High/critical</dt><dd>{{ g["share_critical_or_high_%"]|round|int }}%</dd></div>
+      </dl>
+      <p class="small muted section">{{ g.records|num }} training records</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="card section" aria-labelledby="lim-h">
+  <h2 id="lim-h">Limitations</h2>
+  <ul class="small">
+    <li>All records are synthetic; priority labels are simulated expert decisions, not government records.</li>
+    <li>Costs are at the CPWD DSR 2023 (Delhi) price level; no regional index or 2026 price rise is applied.</li>
+    <li>Streetlight, landscaping, desilting and leak-repair rates are project assumptions.</li>
+    <li>One set of percentage effects is shared by all categories in the cost model.</li>
+  </ul>
+</section>
+{% endblock %}

@@ -1,0 +1,14 @@
+<form class="filters" method="get" role="search" data-autosubmit aria-label="Filter assets">
+  <div class="field filter-search"><label for="q">Search</label><input type="search" id="q" name="q" value="{{ selected.q }}" maxlength="60" placeholder="Asset code or name"></div>
+  <div class="field"><label for="town">Town</label>
+    <select id="town" name="town"><option value="">All my towns</option>
+      {% for t in towns %}<option value="{{ t.id }}" {% if selected.town == t.id %}selected{% endif %}>{{ t.name }}</option>{% endfor %}</select></div>
+  <div class="field"><label for="category">Category</label>
+    <select id="category" name="category"><option value="">All categories</option>
+      {% for c in categories %}<option {% if selected.category == c %}selected{% endif %}>{{ c }}</option>{% endfor %}</select></div>
+  <div class="field"><label for="grade">Condition</label>
+    <select id="grade" name="grade"><option value="">All grades</option>
+      {% for g in grades %}<option value="{{ g }}" {% if selected.grade == g %}selected{% endif %}>{{ g }} – {{ g|grade_name }}</option>{% endfor %}</select></div>
+  <div class="filter-actions"><button type="submit" class="btn btn-primary">Apply</button>
+    {% if selected.q or selected.town or selected.category or selected.grade %}<a class="btn btn-ghost" href="{{ url_for(request.endpoint) }}">Clear</a>{% endif %}</div>
+</form>

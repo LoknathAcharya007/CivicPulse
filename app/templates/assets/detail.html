@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% from "_ui.html" import grade, grade_cell, priority, empty, icon %}
+{% block title %}{{ asset.asset_code }}{% endblock %}
+{% block description %}Condition, inspection history, maintenance priority and improvement options for asset {{ asset.asset_code }}.{% endblock %}
+{% block content %}
+<div class="eyebrow"><a href="{{ url_for('assets.index') }}">Assets</a> / <a href="{{ url_for('assets.index', town=asset.town.id) }}">{{ asset.town.name }}</a> / {{ asset.asset_code }}</div>
+<section class="card card-accent asset-hero" aria-labelledby="asset-h">
+  {{ grade(asset.current_grade, "grade-lg") }}
+  <div>
+    <h1 id="asset-h">{{ asset.asset_code }}</h1>
+    <div class="meta"><span>{{ asset.name }}</span><span>{{ asset.category }}</span><span>{{ asset.town.name }}</span>
+      <span><strong>{{ asset.quantity|num(1) }}</strong> {{ asset.unit|unit_label }}</span></div>
+  </div>
+  <div class="actions">
+    {% if options %}<a class="btn btn-accent" href="{{ url_for('estimates.compare', asset_id=asset.id) }}">Estimate improvement cost {{ icon("arrow") }}</a>{% endif %}
+    <a class="btn btn-ghost" href="{{ url_for('assets.new_inspection', asset_id=asset.id) }}">Record inspection</a>
+  </div>
+</section>
+{% if asset.is_illustrative %}<p class="notice section">Illustrative synthetic record, not a real municipal asset. {{ asset.location_note }}</p>{% endif %}
+
+<div class="grid grid-main section">
+  <div class="grid">
+    <section class="card" aria-labelledby="up-h">
+      <div class="card-head"><h2 id="up-h">Condition upgrade</h2><span class="small">Current: {{ asset.current_grade }} – {{ asset.current_grade|grade_name }}</span></div>
+      <p class="muted small">Only improvements to a better grade can be estimated. Pick a target grade to see the backend estimate.</p>
+      <div class="ladder" role="list">
+        {% for g in grades %}
+          {% if g in options %}
+            <a class="rung" role="listitem" href="{{ url_for('estimates.compare', asset_id=asset.id, target=g) }}">{{ grade(g) }}<span>{{ g|grade_name }}</span><span class="small">Estimate</span></a>
+          {% elif g == asset.current_grade %}
+            <span class="rung current" role="listitem" aria-current="true">{{ grade(g) }}<span>{{ g|grade_name }}</span><span class="small">Current</span></span>
+          {% else %}
+            <span class="rung locked" role="listitem" aria-disabled="true">{{ grade(g) }}<span>{{ g|grade_name }}</span><span class="small">Not allowed</span></span>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% if not options %}<p class="notice section">This asset is already grade A (Very Good); there is no better grade to estimate.</p>{% endif %}
+      {% if options %}<p class="small section"><a href="{{ url_for('assets.new_improvement', asset_id=asset.id) }}">Record completed improvement work</a></p>{% endif %}
+    </section>
+
+    <section class="card flush" aria-labelledby="hist-h">
+      <div class="card-head"><h2 id="hist-h">Assessment history</h2><span class="small">{{ assessments|length }} record{{ "" if assessments|length == 1 else "s" }}</span></div>
+      <div class="table-wrap section">
+        <table class="table stack-sm">
+          <thead><tr><th scope="col">Date</th><th scope="col">Grade</th><th scope="col" class="num">Damaged</th><th scope="col" class="num">Since maint.</th>
+            <th scope="col" class="num">Complaints</th><th scope="col">Priority</th><th scope="col">Source</th></tr></thead>
+          <tbody>{% for s in assessments %}
+            <tr><td data-label="Date">{{ s.assessed_on.strftime("%d %b %Y") }}{% if s.notes %}<span class="sub">{{ s.notes }}</span>{% endif %}</td>
+              <td data-label="Grade">{{ grade_cell(s.grade) }}</td><td data-label="Damaged" class="num">{{ s.damaged_share_pct|round(1) }}%</td>
+              <td data-label="Since maint." class="num">{{ s.years_since_maintenance }} yr</td><td data-label="Complaints" class="num">{{ s.complaints_last_12m }}</td>
+              <td data-label="Priority">{{ priority(s.predicted_priority) }}</td>
+              <td data-label="Source">{{ s.source }}{% if s.assessed_by %}<span class="sub">{{ s.assessed_by.username }}</span>{% endif %}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card flush" aria-labelledby="maint-h">
+      <div class="card-head"><h2 id="maint-h">Maintenance history</h2></div>
+      {% if maintenance %}
+      <div class="table-wrap section">
+        <table class="table stack-sm">
+          <thead><tr><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Grade change</th><th scope="col" class="num">Actual cost</th><th scope="col">Description</th></tr></thead>
+          <tbody>{% for m in maintenance %}
+            <tr><td data-label="Date">{{ m.performed_on.strftime("%d %b %Y") }}</td><td data-label="Type">{{ m.work_type|capitalize }}</td>
+              <td data-label="Grade change">{% if m.to_grade %}<span class="grade-cell">{{ grade(m.from_grade) }}→{{ grade(m.to_grade) }}</span>{% else %}–{% endif %}</td>
+              <td data-label="Actual cost" class="num">{{ m.actual_cost_inr|inr if m.actual_cost_inr is not none else "–" }}</td>
+              <td data-label="Description">{{ m.description }}{% if m.recorded_by %}<span class="sub">{{ m.recorded_by.username }}</span>{% endif %}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+      {% else %}{% call empty("No maintenance recorded") %}{% endcall %}{% endif %}
+    </section>
+  </div>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="facts-h">
+      <h2 id="facts-h">Asset details</h2>
+      <dl class="facts">
+        <div><dt>Category</dt><dd>{{ asset.category }}</dd></div>
+        <div><dt>Quantity</dt><dd>{{ asset.quantity|num(1) }} {{ asset.unit|unit_label }}</dd></div>
+        <div><dt>Town</dt><dd>{{ asset.town.name }}</dd></div>
+        <div><dt>Town class</dt><dd>{{ asset.town.town_class }}</dd></div>
+        <div><dt>Coalfield area</dt><dd>{{ "Yes" if asset.town.in_coalfield else "No" }}</dd></div>
+        <div><dt>Commissioned</dt><dd>{{ asset.commissioning_year }}</dd></div>
+        <div><dt>Population served</dt><dd>{{ asset.population_served|num }}</dd></div>
+        <div><dt>Latest inspection</dt><dd>{{ latest.assessed_on.strftime("%d %b %Y") if latest else "–" }}</dd></div>
+      </dl>
+    </section>
+    {% if latest %}
+    <section class="card card-yellow" aria-labelledby="model-h">
+      <h2 id="model-h">Model outputs</h2>
+      <div class="model-card section">
+        <div><div class="model-tag">Decision Tree · maintenance priority</div>
+          <div class="model-value">{{ latest.predicted_priority }}</div>
+          <p class="small muted">From the latest assessment ({{ latest.assessed_on.strftime("%d %b %Y") }}).</p></div>
+      </div>
+      <div class="model-card section">
+        <div><div class="model-tag">K-Means · asset group {{ latest.predicted_group }}</div>
+          <div class="model-value">{{ group_name }}</div>
+          {% if profile %}<p class="small muted">Typical group profile (Phase 1 training data): {{ profile.damaged_share_pct }}% damaged, {{ profile.asset_age_years }} years old,
+            {{ profile.years_since_maintenance }} years since maintenance; {{ profile["share_critical_or_high_%"]|round|int }}% were high or critical priority.</p>{% endif %}</div>
+      </div>
+      <p class="hint">Cost predictions (Linear Regression) are shown on the estimate page. Models were trained on synthetic data.</p>
+    </section>
+    {% endif %}
+    <section class="card" aria-labelledby="est-h">
+      <div class="card-head"><h2 id="est-h">Saved estimates</h2></div>
+      {% if estimates %}
+      <ul class="list-plain">{% for e in estimates %}
+        <li><span><a class="strong" href="{{ url_for('estimates.detail', estimate_id=e.id) }}">{{ e.current_grade }} → {{ e.target_grade }}</a>
+          <span class="sub small muted">{{ e.created_at|ist }} · {{ e.created_by.username }}</span></span><span class="strong">{{ e.final_cost|inr }}</span></li>{% endfor %}</ul>
+      {% else %}<p class="muted small">No estimates saved for this asset yet.</p>{% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from "_ui.html" import field %}
+{% block title %}Create account · Admin{% endblock %}
+{% block description %}Create a CivicPulse account.{% endblock %}
+{% block content %}
+{% set admin_title = title %}{% set admin_lead = "Passwords need at least 10 characters with letters and numbers or symbols, and must not contain the username." %}
+{% include "admin/_tabs.html" %}
+<section class="card">
+  <form method="post" novalidate data-once>
+    {{ form.hidden_tag() }}
+    <div class="form-grid">
+      {{ field(form.username, autocomplete="off", autocapitalize="none", spellcheck="false", maxlength=40, hint="3–40 characters: lowercase letters, digits, dot, dash or underscore.") }}
+      {{ field(form.full_name, maxlength=100) }}
+      {{ field(form.role) }}
+      {{ field(form.towns, hint="Required for officials; ignored for administrators. Hold Ctrl (Cmd on Mac) to select several.") }}
+      {{ field(form.password, autocomplete="new-password", maxlength=128) }}
+      {{ field(form.confirm, autocomplete="new-password", maxlength=128) }}
+    </div>
+    <div class="form-actions"><button type="submit" class="btn btn-primary" data-busy-label="Creating…">Create account</button>
+      <a class="btn btn-ghost" href="{{ url_for('admin.users') }}">Cancel</a></div>
+  </form>
+</section>
+{% endblock %}

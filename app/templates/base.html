@@ -1,0 +1,82 @@
+{%- from "_ui.html" import icon -%}
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}CivicPulse{% endblock %} · CivicPulse</title>
+  <meta name="description" content="{% block description %}CivicPulse estimates infrastructure improvement costs and maintenance priorities for municipal assets in Paschim Bardhaman, West Bengal.{% endblock %}">
+  <meta name="theme-color" content="#15324A">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon-32.png') }}" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+<a class="skip-link" href="#main">Skip to content</a>
+{% block shell %}
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ url_for('dashboard.index') }}" aria-label="CivicPulse home">
+      {{ icon("logo") }}
+      <span><span class="brand-name">CivicPulse</span><span class="brand-sub">Paschim Bardhaman</span></span>
+    </a>
+    {% if current_user.is_authenticated %}
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">{{ icon("menu") }}Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      {% set ep = request.endpoint or "" %}
+      {% macro navlink(endpoint, label, active) %}<a href="{{ url_for(endpoint) }}"{% if active %} aria-current="page"{% endif %}>{{ label }}</a>{% endmacro %}
+      {{ navlink("dashboard.index", "Dashboard", ep == "dashboard.index") }}
+      {{ navlink("dashboard.towns", "Towns", ep == "dashboard.towns") }}
+      {{ navlink("assets.index", "Assets", ep.startswith("assets.")) }}
+      {{ navlink("estimates.new", "New estimate", ep in ("estimates.new", "estimates.compare", "estimates.create")) }}
+      {{ navlink("estimates.index", "Estimates", ep in ("estimates.index", "estimates.detail")) }}
+      {{ navlink("analytics.index", "Analytics", ep.startswith("analytics.")) }}
+      {{ navlink("reports.index", "Reports", ep.startswith("reports.")) }}
+      {% if current_user.is_admin %}{{ navlink("admin.users", "Admin", ep.startswith("admin.")) }}{% endif %}
+      <span class="nav-spacer"></span>
+      <div class="user-box">
+        <div class="user-name">{{ current_user.full_name }}<span>{{ current_user.role_label }}</span></div>
+        <form method="post" action="{{ url_for('auth.logout') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button type="submit" class="btn-logout">Log out</button>
+        </form>
+      </div>
+    </nav>
+    {% endif %}
+  </div>
+</header>
+<main id="main" tabindex="-1">
+  <div class="wrap">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}<div class="flash-stack" role="status">
+        {% for category, m in messages %}<p class="flash {{ 'error-flash' if category == 'error' else ('ok-flash' if category == 'ok' else '') }}">{{ m }}</p>{% endfor %}
+      </div>{% endif %}
+    {% endwith %}
+    <div class="page">{% block content %}{% endblock %}</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>CivicPulse</strong> — infrastructure cost prediction for Paschim Bardhaman. FSP project, Team 13.</p>
+      <p>Demonstration data: assets and assessments are <strong>illustrative synthetic records</strong>, not real municipal assets.
+        Costs use the CPWD DSR 2023 (Delhi) price level, not 2026 market prices.</p>
+    </div>
+    {% if current_user.is_authenticated %}
+    <nav aria-label="Footer">
+      <a href="{{ url_for('dashboard.index') }}">Dashboard</a>
+      <a href="{{ url_for('dashboard.towns') }}">Towns</a>
+      <a href="{{ url_for('assets.index') }}">Assets</a>
+      <a href="{{ url_for('estimates.index') }}">Estimates</a>
+      <a href="{{ url_for('analytics.index') }}">Analytics</a>
+      <a href="{{ url_for('reports.index') }}">Reports</a>
+    </nav>
+    {% endif %}
+  </div>
+</footer>
+{% endblock %}
+</body>
+</html>

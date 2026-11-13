@@ -1,0 +1,10 @@
+# Lint settings. ml_artifacts/ holds the unchanged Phase 1 files (checksummed) and is never edited.
+line-length = 120
+extend-exclude = ["ml_artifacts", ".venv"]
+
+[lint]
+select = ["E", "F", "W", "B", "I", "UP", "S"]
+
+[lint.per-file-ignores]
+# Tests use assert, and fixed fake passwords for throw-away test accounts.
+"tests/*" = ["S101", "S105", "S106"]

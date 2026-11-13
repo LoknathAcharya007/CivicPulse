@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Audit log · Admin{% endblock %}
+{% block description %}Security and activity audit log.{% endblock %}
+{% block content %}
+{% set admin_title = "Audit log" %}{% set admin_lead = "Sign-ins, denied access, CSRF and rate-limit events, estimates, inspections and account changes. Passwords are never logged." %}
+{% include "admin/_tabs.html" %}
+<form class="filters" method="get" data-autosubmit aria-label="Filter audit log">
+  <div class="field"><label for="action">Action</label><select id="action" name="action"><option value="">All actions</option>
+    {% for a in actions %}<option {% if a == action %}selected{% endif %}>{{ a }}</option>{% endfor %}</select></div>
+  <div class="filter-actions"><button type="submit" class="btn btn-primary">Apply</button>{% if action %}<a class="btn btn-ghost" href="{{ url_for('admin.audit') }}">Clear</a>{% endif %}</div>
+</form>
+<section class="card flush">
+  <div class="table-wrap">
+    <table class="table table-compact stack-sm">
+      <thead><tr><th scope="col">Time</th><th scope="col">User</th><th scope="col">Action</th><th scope="col">Outcome</th><th scope="col">Target</th><th scope="col">IP</th><th scope="col">Details</th></tr></thead>
+      <tbody>{% for l in logs.items %}
+        <tr><td data-label="Time">{{ l.created_at|ist }}</td><td data-label="User">{{ l.username or "–" }}</td><td data-label="Action">{{ l.action }}</td>
+          <td data-label="Outcome"><span class="pill {{ 'status-verified' if l.outcome == 'success' else ('p-critical' if l.outcome == 'denied' else 'p-high') }}">{{ l.outcome }}</span></td>
+          <td data-label="Target">{{ l.target_type or "" }} {{ l.target_id or "" }}</td><td data-label="IP">{{ l.ip_address or "" }}</td><td data-label="Details">{{ l.details or "" }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  {% if logs.pages > 1 %}<nav class="pagination" aria-label="Pagination"><span>Page {{ logs.page }} of {{ logs.pages }}</span><span class="actions">
+    {% if logs.has_prev %}<a class="btn btn-ghost btn-sm" href="{{ url_for('admin.audit', page=logs.prev_num, action=action) }}">Newer</a>{% endif %}
+    {% if logs.has_next %}<a class="btn btn-ghost btn-sm" href="{{ url_for('admin.audit', page=logs.next_num, action=action) }}">Older</a>{% endif %}</span></nav>{% endif %}
+</section>
+{% endblock %}

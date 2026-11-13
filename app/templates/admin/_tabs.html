@@ -1,0 +1,9 @@
+<div class="page-head"><div><div class="eyebrow">Administration</div><h1>{{ admin_title }}</h1>{% if admin_lead %}<p class="lead">{{ admin_lead }}</p>{% endif %}</div>
+  {% if admin_action_url %}<div class="actions"><a class="btn btn-accent" href="{{ admin_action_url }}">{{ admin_action_label }}</a></div>{% endif %}</div>
+<nav class="tabs" aria-label="Administration">
+  {% set ep = request.endpoint %}
+  <a href="{{ url_for('admin.users') }}" {% if ep in ('admin.users', 'admin.new_user', 'admin.edit_user', 'admin.reset_password') %}aria-current="page"{% endif %}>Users</a>
+  <a href="{{ url_for('admin.audit') }}" {% if ep == 'admin.audit' %}aria-current="page"{% endif %}>Audit log</a>
+  <a href="{{ url_for('admin.cost_references') }}" {% if ep == 'admin.cost_references' %}aria-current="page"{% endif %}>Cost references</a>
+  <a href="{{ url_for('admin.system') }}" {% if ep == 'admin.system' %}aria-current="page"{% endif %}>System</a>
+</nav>

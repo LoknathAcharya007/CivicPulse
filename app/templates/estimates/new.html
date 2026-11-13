@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "_ui.html" import grade_cell, empty, pager %}
+{% block title %}New estimate{% endblock %}
+{% block description %}Choose an infrastructure asset to estimate the cost of improving its condition grade.{% endblock %}
+{% block content %}
+<ol class="steps" aria-label="Estimate steps"><li class="now" aria-current="step">Choose asset</li><li>Choose target grade</li><li>Review breakdown</li><li>Save estimate</li></ol>
+<div class="page-head"><div><div class="eyebrow">Cost estimation</div><h1>Choose an asset</h1>
+  <p class="lead">Find the asset to improve. The next step shows its current condition and every valid upgrade with the backend's cost estimate.</p></div></div>
+{% include "assets/_filters.html" %}
+<section class="card flush">
+  <div class="card-head"><p class="small muted" aria-live="polite">{{ results.total }} assets found</p></div>
+  {% if results.items %}
+  <div class="table-wrap section">
+    <table class="table stack-sm">
+      <thead><tr><th scope="col">Asset</th><th scope="col">Town</th><th scope="col">Category</th><th scope="col" class="num">Quantity</th><th scope="col">Condition</th><th scope="col"><span class="visually-hidden">Select</span></th></tr></thead>
+      <tbody>{% for a in results.items %}
+        <tr><td data-label="Asset"><span class="strong">{{ a.asset_code }}</span><span class="sub">{{ a.name }}</span></td><td data-label="Town">{{ a.town.name }}</td>
+          <td data-label="Category">{{ a.category }}</td><td data-label="Quantity" class="num">{{ a.quantity|num(1) }} <span class="unit">{{ a.unit|unit_label }}</span></td>
+          <td data-label="Condition">{{ grade_cell(a.current_grade) }}</td>
+          <td data-label="" class="num">{% if a.current_grade != "A" %}<a class="btn btn-primary btn-sm" href="{{ url_for('estimates.compare', asset_id=a.id) }}">Select</a>{% else %}<span class="small muted">Already grade A</span>{% endif %}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  {{ pager(results, "estimates.new", {"town": selected.town or "", "category": selected.category or "", "grade": selected.grade or "", "q": selected.q}) }}
+  {% else %}{% call empty("No assets match these filters") %}<a class="btn btn-ghost btn-sm" href="{{ url_for('estimates.new') }}">Clear filters</a>{% endcall %}{% endif %}
+</section>
+{% endblock %}

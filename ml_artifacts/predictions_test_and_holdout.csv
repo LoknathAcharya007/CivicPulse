@@ -1,0 +1,840 @@
+record_id,town,asset_category,current_grade,target_grade,cost_inr,priority,split,predicted_cost_inr,predicted_priority,predicted_group
+AR01306,Durgapur,Roads,E,C,1192427.84,Critical,test,786095.41,Critical,0
+AR00219,Dakshin Khanda,Drainage,D,,,Moderate,test,,High,2
+AR01332,Asansol,Streetlights,C,A,569630.97,Moderate,test,569953.16,Moderate,2
+AR00759,Asansol,Drainage,C,B,154005.66,Moderate,test,189890.46,Moderate,2
+AR02162,Andal,Drainage,E,B,1078688.83,High,test,1219412.04,High,0
+AR00613,Asansol,Drainage,C,A,226559.24,Moderate,test,180229.54,Moderate,1
+AR03000,Andal,Streetlights,D,,,Moderate,test,,High,2
+AR00962,Siduli,Streetlights,C,,,Moderate,test,,Moderate,2
+AR00810,Bilpahari,Drainage,E,,,Critical,test,,Critical,3
+AR00884,Dignala,Roads,C,B,296855.32,Moderate,test,281861.01,Moderate,1
+AR01504,Mandarbani,Water supply pipelines,E,,,Critical,test,,Critical,0
+AR00948,Durgapur,Water supply pipelines,C,B,231687.01,High,test,337203.4,High,2
+AR00626,Dignala,Water supply pipelines,E,A,2400325.93,Critical,test,4683577.14,Critical,3
+AR01455,Durgapur,Roads,E,C,2316583.31,Critical,test,1593478.42,Critical,3
+AR01409,Asansol,Roads,E,B,1616758.65,Critical,test,2381893.61,Critical,0
+AR00102,Bilpahari,Public parks,A,,,Very Low,test,,Very Low,1
+AR00178,Durgapur,Roads,B,,,Low,test,,Low,1
+AR02149,Asansol,Public parks,D,A,3156260.62,Moderate,test,3394348.27,Moderate,2
+AR00689,Durgapur,Drainage,B,A,182638.01,Moderate,test,191829.59,Low,1
+AR00622,Durgapur,Streetlights,B,,,Low,test,,Low,1
+AR01999,Asansol,Drainage,C,B,96347.33,Moderate,test,83745.43,Moderate,2
+AR01386,Durgapur,Public parks,D,B,577306.2,Moderate,test,508493.16,Moderate,0
+AR01452,Asansol,Water supply pipelines,B,A,143465.58,Moderate,test,119875.38,Moderate,1
+AR01864,Asansol,Streetlights,B,,,Low,test,,Low,1
+AR01119,Dakshin Khanda,Roads,D,,,Moderate,test,,High,2
+AR00828,Durgapur,Roads,E,A,7408850.3,Critical,test,11748179.44,Critical,0
+AR00528,Mandarbani,Roads,E,,,Critical,test,,Critical,0
+AR02488,Durgapur,Streetlights,A,,,Very Low,test,,Very Low,1
+AR02754,Dignala,Drainage,C,B,432657.79,Moderate,test,597442.5,Moderate,2
+AR00290,Andal,Roads,E,A,18308909.02,Critical,test,24662516.49,Critical,3
+AR01603,Durgapur,Water supply pipelines,A,,,Low,test,,Low,1
+AR00245,Durgapur,Drainage,D,C,218452.89,Critical,test,233712.69,High,3
+AR02677,Asansol,Roads,E,,,Critical,test,,Critical,0
+AR01201,Asansol,Roads,E,C,3642149.26,Critical,test,2717225.25,Critical,0
+AR00817,Mahira,Public parks,A,,,Very Low,test,,Very Low,1
+AR02687,Bilpahari,Roads,D,,,High,test,,High,0
+AR02571,Dakshin Khanda,Drainage,C,A,1193361.53,Moderate,test,918184.81,Moderate,2
+AR01556,Asansol,Streetlights,B,,,Low,test,,Low,1
+AR01559,Durgapur,Roads,C,A,3656035.5,Moderate,test,2779963.36,Moderate,2
+AR00743,Siduli,Roads,D,B,1262293.01,High,test,997472.48,High,2
+AR02858,Asansol,Roads,E,B,7419906.67,Critical,test,6510401.68,Critical,3
+AR02523,Mahira,Public parks,B,A,325176.54,Very Low,test,365550.26,Very Low,1
+AR00116,Mandarbani,Water supply pipelines,C,B,180040.04,Moderate,test,215776.82,Moderate,2
+AR01152,Dakshin Khanda,Roads,D,,,Moderate,test,,High,2
+AR01873,Mandarbani,Roads,E,,,Critical,test,,Critical,3
+AR01021,Durgapur,Public parks,B,,,Low,test,,Low,1
+AR02715,Durgapur,Drainage,B,,,Low,test,,Moderate,1
+AR00878,Asansol,Water supply pipelines,C,A,327600.25,High,test,318787.45,High,2
+AR02281,Durgapur,Drainage,C,A,811019.15,Moderate,test,580307.07,Moderate,2
+AR02930,Asansol,Roads,A,,,Low,test,,Low,1
+AR01911,Siduli,Water supply pipelines,D,,,High,test,,Moderate,0
+AR02232,Durgapur,Roads,E,,,Critical,test,,Critical,0
+AR02069,Asansol,Water supply pipelines,E,D,276465.54,Critical,test,235928.02,Critical,0
+AR00482,Bilpahari,Streetlights,A,,,Very Low,test,,Very Low,1
+AR01040,Durgapur,Water supply pipelines,B,A,211291.69,Moderate,test,294663.94,Moderate,1
+AR02819,Durgapur,Streetlights,B,A,79141.75,Low,test,84276.59,Low,1
+AR02417,Bilpahari,Drainage,C,B,279581.14,Moderate,test,345290.33,Moderate,2
+AR02611,Durgapur,Water supply pipelines,A,,,Moderate,test,,Low,1
+AR00666,Asansol,Roads,E,C,1818105.75,Critical,test,1492288.17,Critical,3
+AR00667,Mahira,Roads,D,A,12193841.43,Critical,test,14896691.48,High,3
+AR02870,Siduli,Roads,E,C,4836385.05,High,test,4081326.93,High,3
+AR02289,Durgapur,Roads,E,,,Critical,test,,Critical,0
+AR01078,Asansol,Public parks,A,,,Very Low,test,,Very Low,1
+AR00208,Durgapur,Streetlights,D,B,262776.01,High,test,267352.92,High,3
+AR01362,Durgapur,Roads,B,A,7648875.99,Low,test,6869153.48,Moderate,1
+AR02378,Asansol,Public parks,E,A,7168218.38,High,test,11359727.76,High,0
+AR00059,Durgapur,Drainage,D,B,155914.11,High,test,116550.87,High,0
+AR02826,Asansol,Roads,D,B,2315940.37,High,test,2266835.6,High,0
+AR01959,Siduli,Roads,E,D,1737121.04,High,test,1622484.24,Critical,0
+AR01051,Dakshin Khanda,Water supply pipelines,C,A,801919.24,Moderate,test,547679.75,Moderate,2
+AR02779,Asansol,Public parks,A,,,Very Low,test,,Very Low,1
+AR01593,Asansol,Drainage,B,A,225931.75,Moderate,test,286387.57,Moderate,1
+AR01894,Dakshin Khanda,Streetlights,D,A,1127748.13,Moderate,test,1244805.38,High,2
+AR00777,Durgapur,Streetlights,A,,,Low,test,,Very Low,1
+AR01123,Bilpahari,Streetlights,C,B,251472.12,High,test,278333.72,Moderate,2
+AR01875,Dignala,Streetlights,B,,,Very Low,test,,Low,1
+AR02636,Asansol,Drainage,E,C,916355.31,Critical,test,730089.24,Critical,0
+AR01054,Asansol,Streetlights,B,,,Moderate,test,,Low,1
+AR01410,Siduli,Water supply pipelines,C,B,188012.1,Moderate,test,221508.44,High,2
+AR00686,Durgapur,Drainage,B,,,Low,test,,Moderate,1
+AR01689,Asansol,Roads,E,D,1663380.83,Critical,test,2007923.63,Critical,0
+AR00776,Durgapur,Water supply pipelines,B,A,147000.83,Moderate,test,196751.94,Moderate,1
+AR02720,Durgapur,Roads,E,C,24666189.71,Critical,test,12739557.28,Critical,0
+AR02882,Asansol,Drainage,E,B,1655497.48,Critical,test,1878002.56,Critical,0
+AR02753,Durgapur,Drainage,C,,,Moderate,test,,Moderate,2
+AR01802,Durgapur,Water supply pipelines,C,B,162711.53,High,test,177511.35,High,2
+AR01668,Durgapur,Streetlights,D,,,High,test,,Critical,3
+AR01996,Dignala,Streetlights,D,A,1473132.78,High,test,1662586.27,High,2
+AR01974,Durgapur,Roads,E,,,Critical,test,,Critical,3
+AR00734,Asansol,Streetlights,E,B,2469093.64,Critical,test,2691810.08,Critical,3
+AR01284,Asansol,Public parks,C,B,488930.48,Moderate,test,546552.15,Moderate,2
+AR01686,Asansol,Drainage,C,A,686455.58,High,test,587108.87,High,2
+AR00708,Asansol,Water supply pipelines,D,,,Critical,test,,High,0
+AR01319,Asansol,Drainage,E,B,5878022.4,High,test,5532536.47,Critical,0
+AR02158,Durgapur,Streetlights,C,,,Moderate,test,,Moderate,2
+AR00707,Bilpahari,Roads,E,B,6019128.56,Critical,test,5901810.11,Critical,3
+AR02555,Durgapur,Drainage,D,A,961555.7,Critical,test,898417.71,High,0
+AR00877,Durgapur,Water supply pipelines,D,A,1173906.22,High,test,1460958.5,High,0
+AR00717,Asansol,Streetlights,C,B,414590.24,Moderate,test,508526.95,Moderate,2
+AR01099,Asansol,Roads,D,,,High,test,,High,0
+AR01522,Asansol,Roads,E,,,Critical,test,,Critical,0
+AR02719,Durgapur,Roads,D,A,973008.37,High,test,1264132.88,High,2
+AR00309,Siduli,Roads,B,A,1192189.75,Moderate,test,1578421.72,Moderate,1
+AR00283,Asansol,Drainage,C,A,1046833.27,High,test,764572.36,High,2
+AR01744,Asansol,Public parks,B,A,1317103.86,Low,test,1613547.2,Low,1
+AR00138,Bilpahari,Drainage,D,C,98766.77,Moderate,test,110093.1,High,2
+AR00493,Dakshin Khanda,Roads,D,B,3236243.33,High,test,2371789.81,High,2
+AR01994,Asansol,Roads,C,,,Moderate,test,,High,2
+AR01540,Asansol,Drainage,B,,,Low,test,,Low,1
+AR02094,Durgapur,Roads,E,C,3142834.81,Critical,test,2513287.68,Critical,3
+AR02806,Durgapur,Drainage,E,B,1690438.9,Critical,test,1625366.59,Critical,3
+AR00820,Asansol,Streetlights,D,A,780336.08,High,test,694687.0,High,2
+AR00222,Andal,Roads,D,B,2977977.45,High,test,2406886.32,High,2
+AR01111,Dignala,Public parks,D,C,139874.03,Moderate,test,137408.89,Moderate,2
+AR02906,Durgapur,Roads,B,A,1137594.27,Very Low,test,1429038.6,Moderate,1
+AR01786,Dakshin Khanda,Drainage,D,B,1671726.01,High,test,1372066.06,High,3
+AR02319,Asansol,Water supply pipelines,D,A,3918842.1,Critical,test,4114867.22,High,3
+AR01626,Durgapur,Water supply pipelines,E,B,981095.78,Critical,test,1023618.16,Critical,3
+AR02503,Durgapur,Roads,A,,,Low,test,,Low,1
+AR01865,Asansol,Roads,E,A,4286832.12,Critical,test,7514412.7,Critical,0
+AR02590,Mahira,Drainage,D,B,854779.56,High,test,751212.02,Moderate,2
+AR01526,Asansol,Roads,E,B,4095814.02,Critical,test,3854750.56,Critical,0
+AR02750,Asansol,Streetlights,E,C,582908.51,High,test,559956.31,Critical,0
+AR01499,Asansol,Water supply pipelines,B,,,Moderate,test,,Moderate,1
+AR00786,Asansol,Roads,C,A,3096296.45,Moderate,test,2801260.33,Moderate,2
+AR01622,Siduli,Public parks,B,,,Very Low,test,,Very Low,1
+AR01661,Asansol,Public parks,B,,,Low,test,,Very Low,1
+AR00545,Asansol,Roads,C,B,402818.62,Moderate,test,448872.13,Moderate,2
+AR00037,Durgapur,Streetlights,D,B,199507.2,High,test,168747.11,High,2
+AR01497,Durgapur,Streetlights,D,B,1240028.55,Moderate,test,1049492.85,High,2
+AR00361,Asansol,Water supply pipelines,B,A,231504.22,Moderate,test,295758.84,Moderate,2
+AR00130,Durgapur,Public parks,C,B,545557.73,Low,test,552403.12,Low,2
+AR01462,Asansol,Public parks,B,,,Very Low,test,,Low,1
+AR00223,Asansol,Public parks,D,B,1325430.35,High,test,1209092.89,Moderate,0
+AR00764,Durgapur,Roads,C,A,710662.56,Moderate,test,576692.19,Moderate,2
+AR01956,Asansol,Roads,C,A,6886250.86,Moderate,test,5270778.6,Moderate,1
+AR02458,Durgapur,Streetlights,A,,,Low,test,,Low,1
+AR02909,Asansol,Drainage,E,B,1566978.48,Critical,test,1484422.48,Critical,3
+AR02276,Asansol,Drainage,B,A,294127.02,Moderate,test,301804.09,Moderate,1
+AR01847,Mandarbani,Roads,C,B,754111.8,Moderate,test,1007936.83,Moderate,2
+AR02388,Durgapur,Roads,C,B,309403.37,High,test,409545.05,Moderate,2
+AR02073,Asansol,Drainage,C,,,Moderate,test,,Moderate,2
+AR00559,Asansol,Roads,E,A,5004995.48,Critical,test,7483028.39,Critical,0
+AR02729,Durgapur,Public parks,B,,,Low,test,,Low,1
+AR00782,Durgapur,Public parks,D,A,2054885.17,Moderate,test,2017297.77,Moderate,2
+AR01713,Asansol,Streetlights,A,,,Very Low,test,,Very Low,1
+AR02272,Asansol,Roads,C,A,4725803.19,Moderate,test,3418751.47,Moderate,1
+AR02047,Dignala,Roads,E,C,3613406.15,Critical,test,2768792.3,Critical,3
+AR01745,Durgapur,Streetlights,D,C,282434.07,High,test,272363.5,High,0
+AR01708,Durgapur,Streetlights,B,A,494323.37,Very Low,test,449605.82,Low,1
+AR02649,Dakshin Khanda,Drainage,B,A,111281.88,Low,test,102349.11,Very Low,1
+AR01412,Dignala,Water supply pipelines,C,B,221003.98,Moderate,test,245303.05,Moderate,2
+AR00204,Durgapur,Water supply pipelines,D,B,541184.62,High,test,466373.46,High,0
+AR02776,Durgapur,Public parks,D,C,1345316.08,Moderate,test,1372499.97,Moderate,2
+AR01533,Durgapur,Roads,A,,,Low,test,,Low,1
+AR02372,Durgapur,Roads,C,A,3293607.18,Moderate,test,2411135.57,Moderate,2
+AR02615,Asansol,Roads,E,B,12568580.65,Critical,test,9910478.07,Critical,0
+AR00951,Siduli,Drainage,D,A,1832769.72,High,test,1627742.15,High,0
+AR02356,Mandarbani,Water supply pipelines,C,,,Moderate,test,,Moderate,2
+AR00279,Asansol,Streetlights,C,B,696780.62,Moderate,test,851304.21,Moderate,2
+AR00901,Durgapur,Drainage,D,A,448958.68,Critical,test,418440.02,High,0
+AR02126,Siduli,Drainage,D,,,High,test,,High,0
+AR01508,Andal,Streetlights,B,,,Low,test,,Low,1
+AR00332,Durgapur,Roads,C,A,4614465.09,Moderate,test,2632001.54,Moderate,2
+AR01801,Asansol,Drainage,E,B,1286391.28,Critical,test,1342939.75,Critical,0
+AR00252,Durgapur,Public parks,B,,,Very Low,test,,Low,1
+AR02474,Siduli,Public parks,D,,,Moderate,test,,High,2
+AR01352,Durgapur,Public parks,E,,,Critical,test,,High,0
+AR00547,Durgapur,Streetlights,C,,,Moderate,test,,Moderate,2
+AR02367,Dignala,Drainage,D,A,1619920.35,High,test,1511169.5,High,3
+AR00825,Mandarbani,Public parks,B,,,Very Low,test,,Very Low,1
+AR01169,Dakshin Khanda,Water supply pipelines,C,,,Moderate,test,,Moderate,2
+AR00255,Mandarbani,Roads,C,B,1853337.15,High,test,1998851.35,Moderate,2
+AR01595,Durgapur,Streetlights,D,B,301921.16,Moderate,test,261973.58,High,2
+AR01196,Durgapur,Roads,D,A,51964401.96,High,test,46826058.48,High,2
+AR01701,Asansol,Streetlights,A,,,Very Low,test,,Very Low,1
+AR02602,Durgapur,Drainage,A,,,Very Low,test,,Very Low,1
+AR02183,Durgapur,Drainage,A,,,Low,test,,Low,1
+AR01085,Bilpahari,Water supply pipelines,D,B,1505944.95,Critical,test,1252024.92,Critical,0
+AR02165,Asansol,Drainage,B,,,Moderate,test,,Moderate,1
+AR01383,Durgapur,Streetlights,C,B,393380.06,Moderate,test,417701.04,Moderate,2
+AR00374,Bilpahari,Roads,C,,,Moderate,test,,Moderate,2
+AR01237,Dignala,Streetlights,C,B,247420.96,Moderate,test,267676.78,Moderate,2
+AR02198,Asansol,Drainage,D,A,1217708.55,Critical,test,1051156.8,High,0
+AR02773,Durgapur,Roads,E,,,Critical,test,,Critical,3
+AR00551,Durgapur,Roads,D,,,High,test,,High,0
+AR02805,Asansol,Drainage,D,C,722363.77,High,test,1016949.77,High,2
+AR01695,Durgapur,Roads,D,C,4083175.81,High,test,3796401.21,Critical,3
+AR02743,Durgapur,Roads,C,,,Moderate,test,,Moderate,2
+AR01988,Andal,Roads,E,B,2054462.9,Critical,test,2546520.7,Critical,0
+AR02512,Dakshin Khanda,Public parks,A,,,Very Low,test,,Very Low,1
+AR02859,Durgapur,Roads,D,A,4900542.76,High,test,4401688.05,High,0
+AR02546,Asansol,Streetlights,C,A,360496.07,Moderate,test,350373.5,Moderate,2
+AR02191,Bilpahari,Roads,D,C,2098755.32,High,test,2710088.47,Moderate,2
+AR02330,Bilpahari,Streetlights,C,B,99345.58,Low,test,125940.56,Moderate,2
+AR00503,Mandarbani,Roads,D,C,345290.09,High,test,528359.73,High,2
+AR00508,Dignala,Roads,D,,,High,test,,High,2
+AR01739,Mahira,Roads,D,C,394826.79,Critical,test,499209.53,High,3
+AR01935,Andal,Roads,E,A,1997549.46,Critical,test,3084101.12,Critical,3
+AR00646,Durgapur,Drainage,B,,,Moderate,test,,Moderate,2
+AR02450,Andal,Roads,D,C,569582.13,High,test,704908.07,High,0
+AR00484,Dignala,Streetlights,D,B,682772.95,High,test,578753.96,High,2
+AR01305,Durgapur,Streetlights,D,C,398241.07,High,test,457579.29,High,0
+AR00647,Durgapur,Drainage,A,,,Low,test,,Low,1
+AR01955,Asansol,Roads,C,A,6762765.89,Moderate,test,3476399.11,Moderate,2
+AR02771,Durgapur,Public parks,C,B,314713.88,Low,test,363666.26,Low,2
+AR02286,Asansol,Water supply pipelines,D,B,3024057.09,High,test,2425389.37,High,0
+AR01651,Durgapur,Drainage,B,A,187184.49,Moderate,test,203023.71,Moderate,1
+AR02931,Siduli,Water supply pipelines,A,,,Very Low,test,,Very Low,1
+AR01982,Asansol,Public parks,E,D,144195.51,High,test,181300.65,High,0
+AR01037,Andal,Streetlights,A,,,Very Low,test,,Very Low,1
+AR00925,Durgapur,Public parks,E,,,Moderate,test,,High,3
+AR01892,Durgapur,Drainage,B,A,390772.26,Low,test,439497.42,Low,1
+AR01636,Asansol,Drainage,D,,,High,test,,High,2
+AR01535,Durgapur,Drainage,D,B,360725.7,Critical,test,325963.72,High,3
+AR00275,Asansol,Roads,D,,,High,test,,High,3
+AR02782,Asansol,Water supply pipelines,C,,,High,test,,High,0
+AR02884,Durgapur,Drainage,D,,,Moderate,test,,Moderate,0
+AR02601,Asansol,Roads,C,A,3047675.86,Moderate,test,3410125.95,Moderate,2
+AR00344,Siduli,Drainage,C,B,414389.36,Moderate,test,623153.03,Moderate,2
+AR00495,Siduli,Water supply pipelines,C,B,505699.63,Moderate,test,719608.79,Moderate,0
+AR00304,Durgapur,Public parks,C,B,161054.79,Moderate,test,160729.47,Moderate,2
+AR01289,Durgapur,Streetlights,A,,,Very Low,test,,Very Low,1
+AR01176,Dakshin Khanda,Roads,C,A,12118978.34,Moderate,test,7307109.56,Moderate,2
+AR02835,Durgapur,Streetlights,B,A,86370.93,Moderate,test,78919.57,Low,1
+AR00473,Dignala,Roads,D,C,1571988.78,Moderate,test,2242010.9,High,0
+AR01844,Dignala,Water supply pipelines,D,C,98848.6,High,test,63427.83,High,0
+AR01361,Asansol,Public parks,D,B,3291494.56,High,test,2580260.95,Moderate,3
+AR00452,Durgapur,Streetlights,A,,,Very Low,test,,Very Low,1
+AR01627,Durgapur,Water supply pipelines,A,,,Moderate,test,,Low,1
+AR00012,Asansol,Roads,E,,,Critical,test,,Critical,0
+AR02132,Durgapur,Public parks,E,,,High,test,,High,0
+AR01029,Durgapur,Public parks,D,C,311204.25,High,test,359643.93,Moderate,0
+AR00135,Asansol,Roads,E,,,Critical,test,,Critical,0
+AR00351,Asansol,Roads,D,A,23011073.26,High,test,17255823.55,High,0
+AR01788,Asansol,Roads,E,A,5447520.3,Critical,test,6407421.33,Critical,0
+AR02028,Durgapur,Roads,C,B,1307751.09,Moderate,test,1687954.23,Moderate,2
+AR00710,Durgapur,Water supply pipelines,A,,,Low,test,,Low,1
+AR02117,Asansol,Water supply pipelines,E,,,Critical,test,,Critical,3
+AR00640,Asansol,Water supply pipelines,D,C,156350.29,High,test,222634.24,High,0
+AR02666,Asansol,Public parks,B,,,Very Low,test,,Very Low,1
+AR01221,Bilpahari,Drainage,B,A,845081.82,Low,test,1203973.13,Low,1
+AR01828,Durgapur,Water supply pipelines,C,,,Moderate,test,,High,2
+AR00077,Andal,Drainage,E,,,Critical,test,,Critical,0
+AR01020,Asansol,Roads,B,A,694566.26,Moderate,test,856851.2,Moderate,1
+AR01797,Durgapur,Water supply pipelines,D,C,247133.06,Critical,test,274571.05,High,3
+AR02540,Bilpahari,Water supply pipelines,A,,,Very Low,test,,Very Low,1
+AR01855,Durgapur,Drainage,C,B,351229.18,Moderate,test,419727.74,Moderate,2
+AR01492,Asansol,Streetlights,C,B,302086.5,Moderate,test,396234.06,High,2
+AR01070,Asansol,Drainage,E,B,4747696.8,Critical,test,4177490.69,Critical,3
+AR02781,Asansol,Streetlights,D,A,660272.06,High,test,725695.49,High,2
+AR01216,Dignala,Drainage,D,B,329514.68,High,test,260420.76,High,3
+AR00322,Asansol,Streetlights,A,,,Very Low,test,,Very Low,1
+AR00334,Dakshin Khanda,Water supply pipelines,C,A,297983.36,Moderate,test,218067.4,Moderate,2
+AR01043,Siduli,Roads,C,B,878697.52,Moderate,test,1065159.85,Moderate,2
+AR02953,Siduli,Public parks,E,,,High,test,,High,0
+AR00154,Durgapur,Roads,B,,,High,test,,Moderate,1
+AR02314,Durgapur,Drainage,A,,,Low,test,,Low,1
+AR02554,Mahira,Water supply pipelines,E,A,2334856.57,Critical,test,4566727.65,Critical,3
+AR01733,Durgapur,Public parks,C,,,Low,test,,Low,2
+AR01211,Durgapur,Water supply pipelines,E,C,1695595.91,Critical,test,1232821.82,Critical,0
+AR00358,Asansol,Streetlights,B,A,265684.89,Low,test,270166.89,Low,1
+AR01139,Asansol,Water supply pipelines,D,,,High,test,,High,2
+AR01120,Dignala,Roads,C,,,Moderate,test,,Moderate,2
+AR01987,Asansol,Streetlights,D,,,High,test,,High,2
+AR02216,Dakshin Khanda,Drainage,D,A,1619687.83,High,test,1672223.11,High,2
+AR01495,Asansol,Roads,A,,,Low,test,,Low,1
+AR01874,Dignala,Streetlights,B,,,Very Low,test,,Low,1
+AR00519,Siduli,Roads,E,B,5526837.1,Critical,test,5248403.73,Critical,0
+AR00704,Siduli,Roads,D,B,1287846.47,High,test,1304257.5,High,2
+AR02668,Durgapur,Water supply pipelines,B,A,183547.55,Moderate,test,173575.71,Moderate,1
+AR02992,Durgapur,Public parks,A,,,Very Low,test,,Very Low,1
+AR01447,Durgapur,Public parks,E,B,10612410.87,Critical,test,8418114.7,Critical,3
+AR01785,Durgapur,Roads,A,,,Very Low,test,,Very Low,1
+AR01424,Durgapur,Roads,E,C,10915981.87,Critical,test,7502698.59,Critical,0
+AR00122,Durgapur,Drainage,D,B,1382312.34,Critical,test,1449396.67,High,3
+AR02624,Siduli,Roads,A,,,Low,test,,Low,1
+AR01376,Durgapur,Streetlights,B,,,Low,test,,Low,1
+AR02393,Asansol,Roads,E,D,722804.08,Critical,test,836025.82,Critical,0
+AR01012,Andal,Drainage,D,C,500263.5,Critical,test,564459.0,High,2
+AR00156,Durgapur,Streetlights,A,,,Very Low,test,,Very Low,1
+AR02252,Durgapur,Roads,C,B,658574.23,Moderate,test,792184.75,Moderate,2
+AR00375,Durgapur,Roads,A,,,Low,test,,Low,1
+AR01178,Siduli,Water supply pipelines,C,,,High,test,,Moderate,2
+AR02509,Mandarbani,Water supply pipelines,B,,,Low,test,,Low,1
+AR00651,Mandarbani,Drainage,C,,,Moderate,test,,Low,2
+AR00806,Durgapur,Roads,D,C,4259857.55,High,test,3677045.44,High,2
+AR02580,Durgapur,Roads,C,A,6843147.24,Moderate,test,5163404.88,Moderate,2
+AR02010,Asansol,Public parks,B,A,368522.53,Very Low,test,379682.95,Very Low,1
+AR02788,Durgapur,Roads,C,B,899033.65,Moderate,test,1222353.91,Moderate,2
+AR01491,Mandarbani,Roads,C,A,3214489.99,Moderate,test,2698952.65,Moderate,2
+AR00157,Durgapur,Streetlights,C,B,176477.15,Moderate,test,173440.22,Moderate,2
+AR01454,Asansol,Water supply pipelines,B,,,Moderate,test,,Moderate,1
+AR00514,Durgapur,Roads,A,,,Very Low,test,,Low,1
+AR01255,Durgapur,Drainage,B,,,Low,test,,Moderate,1
+AR02481,Asansol,Water supply pipelines,B,,,Moderate,test,,Moderate,1
+AR00844,Asansol,Water supply pipelines,E,,,Critical,test,,Critical,0
+AR00451,Durgapur,Water supply pipelines,A,,,Low,test,,Very Low,1
+AR02114,Durgapur,Roads,C,A,4007611.51,Moderate,test,2914804.79,Moderate,2
+AR00243,Durgapur,Water supply pipelines,D,,,High,test,,High,0
+AR02468,Asansol,Drainage,D,,,High,test,,High,0
+AR01752,Dignala,Drainage,B,A,147204.27,Low,test,119198.34,Low,1
+AR02747,Durgapur,Water supply pipelines,D,C,580612.67,Critical,test,746938.89,High,0
+AR00031,Asansol,Roads,B,,,Moderate,test,,Moderate,1
+AR00459,Bilpahari,Roads,A,,,Low,test,,Low,1
+AR01642,Bilpahari,Roads,E,D,1803988.53,Critical,test,2229636.69,Critical,3
+AR01149,Mandarbani,Streetlights,C,,,Low,test,,Moderate,1
+AR01067,Durgapur,Roads,D,A,10191352.98,High,test,8530897.02,High,2
+AR02542,Siduli,Roads,A,,,Low,test,,Very Low,1
+AR02251,Bilpahari,Roads,D,,,High,test,,High,2
+AR01860,Asansol,Water supply pipelines,D,B,1656108.41,Critical,test,1101224.17,High,0
+AR02883,Durgapur,Drainage,D,C,277813.03,High,test,442034.3,High,2
+AR00025,Asansol,Water supply pipelines,B,A,228084.24,Low,test,381822.81,Low,1
+AR00957,Asansol,Roads,E,B,12963467.69,Critical,test,11671810.15,Critical,3
+AR01870,Durgapur,Water supply pipelines,C,A,691539.05,High,test,542305.12,High,0
+AR01248,Siduli,Drainage,A,,,Moderate,test,,Very Low,1
+AR01239,Durgapur,Roads,D,,,High,test,,High,2
+AR02795,Siduli,Roads,C,A,9597720.95,Moderate,test,6098881.12,Moderate,2
+AR01222,Asansol,Public parks,C,,,Moderate,test,,Low,2
+AR02082,Durgapur,Streetlights,D,A,1321681.56,High,test,1229977.78,High,2
+AR01524,Asansol,Water supply pipelines,C,A,431563.28,Moderate,test,339487.31,High,2
+AR01878,Asansol,Public parks,D,A,4657833.4,Moderate,test,5282200.6,Moderate,2
+AR00997,Durgapur,Streetlights,A,,,Very Low,test,,Very Low,1
+AR01600,Asansol,Streetlights,B,,,Low,test,,Low,1
+AR01639,Bilpahari,Drainage,C,A,1843553.33,Moderate,test,1345079.66,Moderate,2
+AR02704,Durgapur,Roads,B,,,Moderate,test,,Moderate,1
+AR02283,Durgapur,Roads,E,C,16166382.05,Critical,test,10014625.84,Critical,3
+AR01329,Mahira,Drainage,A,,,Very Low,test,,Very Low,1
+AR00574,Asansol,Public parks,C,,,Low,test,,Low,2
+AR01261,Mahira,Roads,E,B,7471155.44,Critical,test,6924837.63,Critical,3
+AR02462,Dakshin Khanda,Water supply pipelines,D,C,543650.77,High,test,751275.04,High,0
+AR01341,Andal,Water supply pipelines,E,D,134562.34,Critical,test,109763.73,Critical,3
+AR02070,Durgapur,Streetlights,B,A,243766.95,Moderate,test,263004.33,Low,1
+AR02607,Bilpahari,Public parks,C,,,Low,test,,Low,2
+AR00264,Asansol,Drainage,D,C,204870.46,High,test,176214.19,High,0
+AR02017,Durgapur,Drainage,A,,,Low,test,,Low,1
+AR01966,Asansol,Drainage,C,,,High,test,,High,2
+AR01137,Durgapur,Water supply pipelines,B,A,107349.5,Moderate,test,57751.26,Moderate,2
+AR00354,Andal,Drainage,E,A,2384998.59,High,test,2941086.81,Critical,0
+AR00744,Andal,Drainage,C,A,503451.53,Moderate,test,339166.31,Moderate,2
+AR00041,Dignala,Streetlights,C,B,151741.39,Moderate,test,125367.59,Moderate,2
+AR01981,Durgapur,Public parks,D,,,Moderate,test,,High,2
+AR01727,Durgapur,Drainage,B,,,Moderate,test,,Moderate,1
+AR02674,Andal,Public parks,E,C,3734669.89,Critical,test,2179125.24,High,0
+AR02529,Bilpahari,Public parks,B,A,1166838.23,Very Low,test,1203794.14,Low,1
+AR02240,Durgapur,Water supply pipelines,B,,,Moderate,test,,Moderate,1
+AR01088,Asansol,Drainage,C,B,83961.74,Moderate,test,54286.91,Moderate,1
+AR01000,Dignala,Streetlights,D,C,110211.29,High,test,147830.3,High,3
+AR02121,Asansol,Drainage,D,A,3351299.08,Critical,test,2371392.03,High,3
+AR01053,Andal,Streetlights,D,C,214050.77,Moderate,test,239740.99,High,3
+AR00732,Dignala,Drainage,C,B,148849.21,Moderate,test,166814.07,Moderate,2
+AR02949,Durgapur,Streetlights,C,,,Moderate,test,,Moderate,2
+AR01917,Asansol,Water supply pipelines,D,,,High,test,,High,0
+AR00438,Asansol,Streetlights,B,,,Low,test,,Low,1
+AR02626,Asansol,Streetlights,E,,,Critical,test,,Critical,0
+AR01669,Durgapur,Streetlights,A,,,Very Low,test,,Low,1
+AR00479,Asansol,Roads,E,D,3217702.42,Critical,test,3786811.51,Critical,3
+AR01538,Asansol,Public parks,D,A,12748837.57,Moderate,test,12484991.25,Moderate,2
+AR01134,Durgapur,Roads,A,,,Low,test,,Low,1
+AR01804,Asansol,Roads,A,,,Low,test,,Very Low,1
+AR02655,Durgapur,Water supply pipelines,C,B,179662.15,High,test,185992.26,High,3
+AR00168,Asansol,Roads,E,B,7941176.95,High,test,6538707.88,Critical,0
+AR01183,Asansol,Roads,E,,,Critical,test,,Critical,0
+AR01391,Andal,Roads,E,C,2149833.79,Critical,test,1198484.16,Critical,3
+AR00960,Durgapur,Public parks,B,,,Low,test,,Low,1
+AR01191,Asansol,Roads,C,,,High,test,,Moderate,2
+AR00339,Bilpahari,Drainage,C,,,Moderate,test,,Moderate,2
+AR00807,Mahira,Public parks,E,B,1506924.5,High,test,1586937.14,High,3
+AR01487,Durgapur,Drainage,B,,,Moderate,test,,Moderate,2
+AR00727,Mandarbani,Roads,E,B,19990084.95,High,test,17052563.71,Critical,0
+AR00218,Asansol,Roads,D,A,2544209.45,High,test,2323798.24,High,2
+AR01608,Asansol,Public parks,C,,,Moderate,test,,Low,2
+AR01820,Asansol,Water supply pipelines,C,,,Moderate,test,,High,2
+AR02274,Asansol,Drainage,E,,,Critical,test,,Critical,3
+AR01418,Durgapur,Roads,C,,,Moderate,test,,Moderate,2
+AR02144,Asansol,Roads,E,B,9255825.98,Critical,test,8477360.21,Critical,3
+AR02741,Dakshin Khanda,Public parks,C,A,771177.43,Moderate,test,682256.03,Low,2
+AR00781,Durgapur,Streetlights,D,,,High,test,,High,2
+AR01567,Asansol,Roads,D,B,1675677.3,High,test,1370399.29,High,0
+AR01985,Dakshin Khanda,Roads,E,D,2392627.13,Critical,test,2233196.09,High,0
+AR00804,Mandarbani,Drainage,C,,,Moderate,test,,Moderate,2
+AR00394,Dakshin Khanda,Roads,D,,,Critical,test,,High,0
+AR02406,Asansol,Drainage,C,B,154059.22,Moderate,test,223313.91,Moderate,2
+AR02239,Asansol,Drainage,E,A,3235163.0,Critical,test,4410816.55,Critical,0
+AR01444,Bilpahari,Public parks,B,,,Very Low,test,,Very Low,1
+AR01030,Durgapur,Roads,B,,,Low,test,,Moderate,1
+AR00368,Mahira,Public parks,C,B,279538.87,Very Low,test,399339.59,Low,2
+AR01503,Dignala,Drainage,C,,,Moderate,test,,Moderate,1
+AR02226,Asansol,Roads,E,B,3154514.99,Critical,test,3562651.31,Critical,3
+AR01693,Durgapur,Drainage,B,A,197584.06,Low,test,253725.9,Moderate,1
+AR00705,Mandarbani,Roads,D,C,5371041.87,High,test,7179031.4,High,2
+AR02412,Asansol,Public parks,A,,,Very Low,test,,Very Low,1
+AR02107,Asansol,Roads,D,B,4136051.28,High,test,2919647.79,High,2
+AR00989,Mahira,Drainage,E,,,Critical,test,,Critical,0
+AR00063,Durgapur,Streetlights,C,,,Moderate,test,,High,2
+AR01728,Durgapur,Drainage,E,C,505968.17,Critical,test,459931.54,Critical,0
+AR01052,Dakshin Khanda,Streetlights,C,B,265804.71,Low,test,301744.87,Moderate,1
+AR02519,Asansol,Roads,E,A,8396142.01,Critical,test,11706905.87,Critical,0
+AR02678,Durgapur,Streetlights,D,B,1647316.34,High,test,1429036.12,High,2
+AR02025,Durgapur,Roads,E,B,14908331.45,Critical,test,12432854.12,Critical,0
+AR01453,Durgapur,Roads,E,B,2523793.46,Critical,test,2823064.59,Critical,0
+AR02893,Asansol,Drainage,D,B,460371.47,High,test,406040.88,High,2
+AR02392,Durgapur,Water supply pipelines,B,A,779300.32,Moderate,test,954258.21,Moderate,1
+AR01435,Asansol,Drainage,E,,,Critical,test,,Critical,3
+AR00455,Andal,Roads,B,A,860898.94,Low,test,1071327.84,Low,1
+AR02089,Dakshin Khanda,Roads,C,B,267609.11,Moderate,test,401335.51,Moderate,1
+AR01969,Durgapur,Drainage,B,A,278548.0,Moderate,test,287052.99,Moderate,2
+AR00662,Durgapur,Roads,E,,,Critical,test,,Critical,0
+AR00556,Asansol,Roads,A,,,Very Low,test,,Low,1
+AR01604,Asansol,Roads,C,B,1101110.45,Moderate,test,1521686.52,High,2
+AR00796,Asansol,Public parks,E,,,Critical,test,,High,0
+AR02479,Asansol,Drainage,D,,,High,test,,High,0
+AR01851,Asansol,Roads,E,B,4191078.44,Critical,test,5022944.38,Critical,3
+AR01926,Asansol,Drainage,C,,,Moderate,test,,Moderate,2
+AR02958,Mandarbani,Roads,D,B,8142396.45,High,test,5201850.91,Moderate,0
+AR01555,Durgapur,Public parks,D,,,Moderate,test,,Moderate,2
+AR01026,Asansol,Water supply pipelines,D,B,1110795.74,Critical,test,948029.4,High,0
+AR02304,Durgapur,Streetlights,C,A,733147.97,Moderate,test,579127.45,Moderate,2
+AR02983,Durgapur,Roads,A,,,Very Low,test,,Low,1
+AR01796,Asansol,Streetlights,E,,,Critical,test,,Critical,3
+AR01136,Andal,Drainage,E,C,541581.68,Critical,test,362072.26,Critical,0
+AR02575,Asansol,Roads,C,A,945885.33,Moderate,test,690532.73,Moderate,1
+AR00331,Dakshin Khanda,Water supply pipelines,E,D,581146.35,Critical,test,726851.18,Critical,0
+AR00758,Bilpahari,Water supply pipelines,D,,,High,test,,High,3
+AR01125,Durgapur,Streetlights,C,B,245687.35,Moderate,test,367376.04,High,2
+AR02068,Durgapur,Drainage,A,,,Low,test,,Low,1
+AR01226,Durgapur,Streetlights,E,B,2720323.94,High,test,2423979.22,Critical,0
+AR01354,Durgapur,Streetlights,A,,,Very Low,test,,Very Low,1
+AR02522,Durgapur,Roads,E,C,2932372.85,Critical,test,1990229.03,Critical,3
+AR00644,Asansol,Streetlights,C,A,234526.82,Moderate,test,224349.48,Moderate,2
+AR01290,Asansol,Roads,C,,,Moderate,test,,Moderate,2
+AR00372,Asansol,Roads,E,B,11005753.63,High,test,9715093.24,High,0
+AR02993,Asansol,Streetlights,B,,,Low,test,,Low,1
+AR00898,Durgapur,Drainage,A,,,Very Low,test,,Very Low,1
+AR01443,Asansol,Roads,E,C,5188489.33,Critical,test,3906989.04,Critical,0
+AR01968,Durgapur,Roads,B,,,Low,test,,Moderate,1
+AR01010,Dakshin Khanda,Drainage,D,B,405080.51,High,test,357894.8,High,0
+AR02863,Asansol,Streetlights,E,C,471095.65,High,test,457803.85,High,0
+AR02786,Asansol,Roads,D,B,7975877.79,High,test,6397233.82,High,0
+AR01195,Durgapur,Water supply pipelines,C,B,879995.93,High,test,1175751.03,High,2
+AR00602,Asansol,Public parks,B,,,Very Low,test,,Very Low,1
+AR01762,Asansol,Streetlights,C,B,194745.39,Moderate,test,186617.83,Moderate,2
+AR00762,Durgapur,Streetlights,D,A,943208.85,High,test,795034.2,High,2
+AR01798,Dakshin Khanda,Roads,C,B,562382.22,Moderate,test,751121.89,Moderate,2
+AR02936,Asansol,Drainage,B,,,Low,test,,Moderate,1
+AR01904,Asansol,Roads,C,A,2283895.88,Moderate,test,2242685.08,Moderate,2
+AR02789,Siduli,Drainage,B,A,207544.0,Moderate,test,295434.3,Moderate,1
+AR02156,Dignala,Roads,D,C,378957.24,Moderate,test,432351.98,High,0
+AR00076,Siduli,Water supply pipelines,D,B,2843072.64,High,test,2487846.08,High,0
+AR01192,Durgapur,Public parks,C,A,952292.44,Low,test,671327.18,Low,1
+AR02513,Asansol,Roads,E,,,Critical,test,,Critical,0
+AR02445,Asansol,Public parks,D,B,1151834.63,High,test,1103146.43,High,0
+AR01348,Asansol,Roads,E,A,27145175.9,Critical,test,34069562.14,Critical,3
+AR02110,Asansol,Streetlights,D,,,High,test,,High,2
+AR00340,Asansol,Streetlights,B,A,413064.77,Low,test,428849.73,Low,1
+AR00150,Andal,Roads,E,A,8612063.08,High,test,12278055.09,High,0
+AR01676,Durgapur,Streetlights,B,,,Low,test,,Low,1
+AR01093,Durgapur,Water supply pipelines,B,,,Moderate,test,,Moderate,1
+AR00017,Siduli,Streetlights,B,,,Low,test,,Low,1
+AR01084,Asansol,Water supply pipelines,D,B,372768.7,Critical,test,313700.88,High,2
+AR00272,Dignala,Drainage,C,B,200287.36,Moderate,test,206000.25,Moderate,2
+AR00163,Durgapur,Streetlights,D,A,508107.49,High,test,496541.11,High,2
+AR01399,Asansol,Drainage,E,,,Critical,test,,Critical,3
+AR02790,Dignala,Roads,D,A,10882184.0,High,test,10324152.14,High,3
+AR00593,Asansol,Drainage,B,A,170759.61,Low,test,218625.96,Moderate,1
+AR00232,Dignala,Streetlights,A,,,Very Low,test,,Very Low,1
+AR00046,Durgapur,Roads,E,A,10312601.05,Critical,test,12676555.12,Critical,0
+AR02876,Durgapur,Water supply pipelines,C,,,High,test,,High,2
+AR02565,Siduli,Streetlights,E,,,High,test,,Critical,0
+AR01983,Durgapur,Drainage,A,,,Very Low,test,,Low,1
+AR00409,Bilpahari,Public parks,C,,,Low,test,,Very Low,2
+AR00397,Andal,Water supply pipelines,D,A,484175.47,High,test,559401.47,High,0
+AR00780,Asansol,Drainage,E,C,570253.88,Critical,test,616830.14,Critical,0
+AR00013,Dakshin Khanda,Drainage,D,,,High,test,,High,0
+AR01373,Durgapur,Public parks,B,,,Very Low,test,,Low,1
+AR02530,Durgapur,Roads,D,B,2730462.9,High,test,2072014.69,High,0
+AR01113,Asansol,Public parks,E,B,2702887.47,Critical,test,2740123.15,High,0
+AR00005,Asansol,Drainage,C,A,890275.29,Moderate,test,795424.94,Moderate,2
+AR01919,Asansol,Water supply pipelines,A,,,Low,test,,Low,1
+AR00126,Asansol,Drainage,C,B,136154.36,Moderate,test,202801.01,Moderate,2
+AR02189,Durgapur,Water supply pipelines,D,,,High,test,,High,0
+AR02473,Dignala,Streetlights,C,A,1540419.88,Moderate,test,1412729.71,Moderate,2
+AR00966,Durgapur,Water supply pipelines,C,B,125281.38,High,test,157444.81,High,2
+AR00746,Dignala,Streetlights,E,D,162917.78,Critical,test,199261.82,High,0
+AR02284,Bilpahari,Drainage,E,A,3446826.76,High,test,4550270.56,High,0
+AR02291,Asansol,Streetlights,D,,,Moderate,test,,High,2
+AR00084,Asansol,Streetlights,B,,,Low,test,,Low,1
+AR00812,Durgapur,Roads,C,,,Moderate,test,,Moderate,2
+AR00443,Andal,Streetlights,C,B,170615.85,Moderate,test,215381.11,Moderate,2
+AR00516,Durgapur,Drainage,D,B,140002.01,High,test,101695.16,High,0
+AR01117,Durgapur,Drainage,C,A,206445.11,Moderate,test,180579.04,Moderate,2
+AR01932,Mandarbani,Streetlights,B,,,Low,test,,Low,1
+AR02096,Asansol,Roads,E,A,9462300.59,Critical,test,11183554.53,Critical,3
+AR01042,Mahira,Streetlights,A,,,Very Low,test,,Low,1
+AR01928,Asansol,Public parks,C,A,2492454.83,Low,test,1595282.97,Low,2
+AR00282,Asansol,Streetlights,D,C,130534.6,Critical,test,131141.67,Critical,3
+AR00026,Dignala,Roads,E,B,8819981.21,Critical,test,9520745.06,Critical,0
+AR00403,Asansol,Streetlights,E,C,1023227.14,Critical,test,766695.19,Critical,3
+AR01049,Asansol,Drainage,D,B,674883.59,High,test,471576.17,High,0
+AR01898,Durgapur,Roads,D,B,413624.87,High,test,369820.09,High,3
+AR00864,Asansol,Water supply pipelines,C,,,High,test,,High,2
+AR01025,Durgapur,Drainage,B,,,Moderate,test,,Moderate,1
+AR02408,Siduli,Roads,C,A,3683063.55,Moderate,test,2363106.12,Moderate,2
+AR00699,Asansol,Roads,E,A,6733158.64,Critical,test,11189244.32,Critical,3
+AR01339,Durgapur,Roads,D,B,1863831.25,High,test,1783388.11,High,2
+AR00261,Asansol,Roads,A,,,Low,test,,Low,1
+AR01623,Durgapur,Drainage,B,,,High,test,,Moderate,2
+AR00110,Siduli,Streetlights,A,,,Very Low,test,,Very Low,1
+AR01280,Asansol,Drainage,C,B,171542.45,Moderate,test,234847.83,High,3
+AR00980,Durgapur,Roads,A,,,Low,test,,Low,1
+AR02588,Asansol,Streetlights,C,B,196100.05,Moderate,test,288069.06,High,2
+AR00813,Asansol,Streetlights,C,A,1177259.0,Moderate,test,1014961.7,Moderate,2
+AR02547,Siduli,Water supply pipelines,E,C,1718740.36,Critical,test,1372644.47,High,0
+AR02508,Asansol,Roads,A,,,Low,test,,Low,1
+AR02605,Dakshin Khanda,Streetlights,A,,,Very Low,test,,Very Low,1
+AR01649,Asansol,Roads,D,A,25406366.1,High,test,19049439.98,High,0
+AR01544,Asansol,Drainage,B,A,221225.99,Low,test,273067.74,Moderate,2
+AR01888,Durgapur,Streetlights,C,A,448038.49,Moderate,test,397443.85,Moderate,2
+AR00625,Durgapur,Roads,B,A,502356.83,Low,test,560922.42,Moderate,1
+AR00996,Siduli,Roads,E,,,Critical,test,,Critical,0
+AR01118,Durgapur,Roads,D,C,710375.6,Critical,test,721306.8,High,0
+AR02494,Asansol,Water supply pipelines,D,B,852817.65,High,test,676755.47,High,0
+AR02499,Asansol,Roads,B,,,Moderate,test,,Moderate,1
+AR01013,Durgapur,Streetlights,B,A,420934.19,Low,test,444015.62,Low,1
+AR00603,Mahira,Water supply pipelines,B,A,154905.86,Low,test,101921.96,Low,1
+AR00598,Andal,Roads,D,,,High,test,,High,3
+AR00896,Dignala,Streetlights,B,,,Very Low,test,,Low,1
+AR01978,Durgapur,Roads,C,B,1060890.77,Moderate,test,1480463.76,Moderate,2
+AR02717,Durgapur,Drainage,B,,,Low,test,,Moderate,2
+AR02981,Asansol,Roads,E,B,22957025.71,Critical,test,16345227.28,Critical,3
+AR00649,Bilpahari,Drainage,E,A,1279456.71,Critical,test,1596553.29,Critical,3
+AR02724,Durgapur,Water supply pipelines,B,,,Moderate,test,,Low,1
+AR01766,Durgapur,Drainage,E,D,536157.63,Critical,test,724437.23,Critical,0
+AR00030,Prayagpur,Roads,D,A,23832217.47,Low,held-out towns,23775267.39,High,0
+AR00045,Ukhra,Water supply pipelines,D,,,High,held-out towns,,High,3
+AR00055,Ukhra,Drainage,C,A,117910.66,Moderate,held-out towns,99661.79,Moderate,2
+AR00069,Ukhra,Drainage,D,,,Moderate,held-out towns,,Moderate,2
+AR00078,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR00090,Ukhra,Water supply pipelines,B,,,Low,held-out towns,,Moderate,1
+AR00097,Ukhra,Streetlights,E,D,97758.08,High,held-out towns,118281.89,High,3
+AR00106,Prayagpur,Streetlights,B,,,Low,held-out towns,,Low,1
+AR00108,Prayagpur,Roads,C,A,15972197.57,Moderate,held-out towns,9900143.5,Moderate,2
+AR00120,Ukhra,Water supply pipelines,D,B,936158.6,High,held-out towns,651790.13,Moderate,0
+AR00134,Prayagpur,Roads,E,C,9064717.8,Critical,held-out towns,5997774.78,Critical,3
+AR00141,Prayagpur,Streetlights,B,A,805551.32,Low,held-out towns,736466.18,Low,1
+AR00146,Ukhra,Water supply pipelines,C,,,Moderate,held-out towns,,Moderate,2
+AR00147,Ukhra,Streetlights,C,B,134723.64,Moderate,held-out towns,148752.72,Moderate,1
+AR00153,Ukhra,Streetlights,C,A,2318064.23,Low,held-out towns,2043017.45,Low,1
+AR00166,Prayagpur,Roads,C,A,579299.09,High,held-out towns,469982.45,Moderate,2
+AR00173,Ukhra,Water supply pipelines,E,C,1464809.79,Critical,held-out towns,871691.63,Critical,0
+AR00176,Ukhra,Roads,A,,,Very Low,held-out towns,,Very Low,1
+AR00192,Ukhra,Public parks,E,B,2384050.01,High,held-out towns,2527913.13,High,3
+AR00200,Ukhra,Roads,C,,,Moderate,held-out towns,,Moderate,1
+AR00213,Prayagpur,Roads,C,A,1182834.28,Moderate,held-out towns,972921.19,Moderate,2
+AR00224,Prayagpur,Public parks,B,A,786425.1,Very Low,held-out towns,965494.64,Low,1
+AR00263,Ukhra,Roads,E,,,Critical,held-out towns,,Critical,0
+AR00278,Prayagpur,Roads,A,,,Very Low,held-out towns,,Very Low,1
+AR00302,Ukhra,Drainage,B,A,126497.01,Moderate,held-out towns,114443.67,Low,1
+AR00303,Prayagpur,Streetlights,E,A,5754923.3,Critical,held-out towns,6447002.6,Critical,0
+AR00325,Ukhra,Streetlights,E,C,727515.88,Critical,held-out towns,603032.83,Critical,3
+AR00327,Ukhra,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR00328,Ukhra,Roads,D,,,Moderate,held-out towns,,High,2
+AR00338,Ukhra,Water supply pipelines,D,C,635031.49,High,held-out towns,731680.55,High,0
+AR00342,Ukhra,Drainage,D,B,1245891.89,High,held-out towns,1201509.0,High,0
+AR00345,Ukhra,Water supply pipelines,C,,,Moderate,held-out towns,,Moderate,2
+AR00347,Ukhra,Roads,E,B,6240115.42,Critical,held-out towns,6474763.08,Critical,3
+AR00357,Prayagpur,Streetlights,B,A,505385.83,Very Low,held-out towns,555040.71,Low,1
+AR00365,Ukhra,Drainage,B,,,Moderate,held-out towns,,Moderate,1
+AR00384,Ukhra,Roads,E,,,Critical,held-out towns,,Critical,0
+AR00396,Ukhra,Roads,E,B,4094774.05,Critical,held-out towns,5090685.94,Critical,0
+AR00400,Ukhra,Roads,C,B,1282009.55,Moderate,held-out towns,1679099.38,Moderate,2
+AR00402,Prayagpur,Roads,E,D,375774.6,Critical,held-out towns,421141.93,Critical,3
+AR00406,Ukhra,Water supply pipelines,C,B,217241.64,High,held-out towns,252487.7,High,2
+AR00407,Prayagpur,Streetlights,C,,,Low,held-out towns,,Moderate,2
+AR00413,Ukhra,Public parks,D,B,1066834.38,Moderate,held-out towns,1015511.08,Low,2
+AR00423,Ukhra,Water supply pipelines,D,C,819939.98,Critical,held-out towns,884375.02,High,0
+AR00435,Prayagpur,Roads,B,,,Low,held-out towns,,Low,1
+AR00436,Ukhra,Streetlights,D,A,2263401.79,Moderate,held-out towns,2448322.24,Moderate,2
+AR00437,Ukhra,Drainage,C,A,1911811.62,Moderate,held-out towns,1738816.54,Moderate,1
+AR00456,Ukhra,Roads,E,,,Critical,held-out towns,,Critical,3
+AR00462,Ukhra,Public parks,E,B,610485.47,High,held-out towns,826394.11,High,3
+AR00475,Ukhra,Streetlights,B,,,Very Low,held-out towns,,Low,1
+AR00478,Ukhra,Roads,C,A,1926395.48,Moderate,held-out towns,1951945.38,Moderate,2
+AR00497,Ukhra,Public parks,D,B,828812.21,High,held-out towns,843087.44,Moderate,3
+AR00500,Prayagpur,Public parks,A,,,Very Low,held-out towns,,Very Low,1
+AR00501,Ukhra,Drainage,E,B,547611.55,Critical,held-out towns,648027.62,Critical,0
+AR00507,Prayagpur,Drainage,D,A,1699326.9,High,held-out towns,1433746.72,High,0
+AR00522,Ukhra,Roads,E,A,1148327.14,Critical,held-out towns,2022229.94,Critical,3
+AR00536,Prayagpur,Streetlights,B,,,Moderate,held-out towns,,Low,1
+AR00537,Ukhra,Water supply pipelines,B,,,Low,held-out towns,,Low,1
+AR00543,Ukhra,Roads,B,,,Low,held-out towns,,Low,1
+AR00544,Prayagpur,Water supply pipelines,A,,,Low,held-out towns,,Very Low,1
+AR00548,Ukhra,Streetlights,D,B,506607.6,Moderate,held-out towns,436819.87,High,2
+AR00550,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Low,1
+AR00557,Ukhra,Roads,D,C,316786.85,Moderate,held-out towns,378410.14,Moderate,0
+AR00563,Ukhra,Drainage,B,,,Low,held-out towns,,Low,1
+AR00568,Ukhra,Roads,B,A,1706860.38,Low,held-out towns,1870913.96,Moderate,1
+AR00571,Ukhra,Drainage,B,,,Low,held-out towns,,Low,1
+AR00584,Ukhra,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR00588,Ukhra,Streetlights,C,B,78747.39,Moderate,held-out towns,80723.7,Moderate,2
+AR00597,Ukhra,Water supply pipelines,A,,,Low,held-out towns,,Very Low,1
+AR00610,Prayagpur,Public parks,B,A,105897.02,Very Low,held-out towns,119518.88,Very Low,1
+AR00618,Ukhra,Drainage,D,A,3315495.06,Moderate,held-out towns,4034837.08,High,0
+AR00621,Prayagpur,Roads,A,,,Very Low,held-out towns,,Very Low,1
+AR00631,Ukhra,Water supply pipelines,B,,,Moderate,held-out towns,,Low,1
+AR00635,Prayagpur,Water supply pipelines,B,A,362541.77,Low,held-out towns,389026.27,Low,1
+AR00637,Ukhra,Roads,E,C,5132739.94,High,held-out towns,3552309.81,Critical,0
+AR00654,Prayagpur,Public parks,A,,,Very Low,held-out towns,,Very Low,1
+AR00656,Ukhra,Water supply pipelines,D,A,581000.53,Critical,held-out towns,951736.9,Critical,3
+AR00671,Ukhra,Roads,B,A,1327046.83,Low,held-out towns,1545230.21,Low,1
+AR00674,Ukhra,Water supply pipelines,D,C,171660.14,High,held-out towns,191507.47,Moderate,0
+AR00681,Ukhra,Public parks,C,A,2474309.87,Low,held-out towns,1592078.71,Very Low,2
+AR00729,Ukhra,Water supply pipelines,B,,,Low,held-out towns,,Low,1
+AR00745,Prayagpur,Water supply pipelines,D,C,1169326.82,High,held-out towns,1469581.41,High,0
+AR00771,Ukhra,Roads,E,A,17089405.09,Critical,held-out towns,20013461.38,Critical,0
+AR00775,Ukhra,Streetlights,B,A,738549.17,Very Low,held-out towns,809991.77,Very Low,1
+AR00792,Ukhra,Roads,E,A,4782965.53,High,held-out towns,7104407.65,High,0
+AR00798,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR00808,Ukhra,Drainage,D,A,3188111.83,High,held-out towns,2073044.47,High,3
+AR00835,Prayagpur,Roads,D,A,4651563.07,High,held-out towns,3763631.0,High,2
+AR00855,Prayagpur,Drainage,D,B,693627.92,Critical,held-out towns,741138.69,High,3
+AR00861,Ukhra,Roads,D,A,4165908.92,High,held-out towns,4742869.63,High,2
+AR00868,Prayagpur,Roads,B,,,Low,held-out towns,,Low,1
+AR00873,Ukhra,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR00881,Ukhra,Roads,D,A,4099151.0,High,held-out towns,4083392.03,High,3
+AR00892,Prayagpur,Public parks,C,,,Low,held-out towns,,Low,2
+AR00895,Prayagpur,Drainage,B,A,167590.94,Low,held-out towns,270277.29,Low,1
+AR00916,Ukhra,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR00923,Ukhra,Public parks,D,,,Moderate,held-out towns,,Moderate,2
+AR00928,Prayagpur,Public parks,C,A,2981396.16,Low,held-out towns,2139489.88,Low,2
+AR00939,Ukhra,Drainage,B,A,369793.39,Moderate,held-out towns,497879.5,Moderate,1
+AR00963,Ukhra,Water supply pipelines,E,,,Critical,held-out towns,,High,0
+AR00977,Ukhra,Drainage,C,A,740279.96,Moderate,held-out towns,670176.13,Moderate,2
+AR00985,Ukhra,Roads,E,B,4482927.99,Critical,held-out towns,3949804.7,High,3
+AR00993,Ukhra,Streetlights,D,B,565433.29,High,held-out towns,634159.93,High,2
+AR01015,Ukhra,Water supply pipelines,D,,,High,held-out towns,,High,0
+AR01024,Ukhra,Water supply pipelines,E,,,Critical,held-out towns,,Critical,0
+AR01058,Ukhra,Streetlights,C,,,Moderate,held-out towns,,Moderate,2
+AR01060,Ukhra,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR01068,Ukhra,Water supply pipelines,B,A,327863.98,Low,held-out towns,438882.7,Low,1
+AR01083,Prayagpur,Roads,B,,,Low,held-out towns,,Low,1
+AR01087,Ukhra,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR01121,Ukhra,Roads,C,B,188447.33,Moderate,held-out towns,226297.99,Moderate,2
+AR01126,Ukhra,Water supply pipelines,E,A,1732113.96,Critical,held-out towns,3235641.23,Critical,3
+AR01141,Ukhra,Drainage,D,,,High,held-out towns,,High,0
+AR01143,Ukhra,Water supply pipelines,D,,,High,held-out towns,,High,0
+AR01150,Prayagpur,Water supply pipelines,C,B,565909.56,High,held-out towns,896277.51,Moderate,2
+AR01155,Ukhra,Water supply pipelines,D,A,4770387.65,Critical,held-out towns,5375941.96,High,3
+AR01170,Ukhra,Roads,D,C,1013909.21,High,held-out towns,1355650.99,High,2
+AR01171,Prayagpur,Drainage,E,,,Critical,held-out towns,,Critical,3
+AR01173,Prayagpur,Roads,E,,,High,held-out towns,,Critical,0
+AR01180,Ukhra,Public parks,C,B,2703354.06,Low,held-out towns,2832411.86,Low,2
+AR01185,Ukhra,Roads,C,,,Low,held-out towns,,Moderate,1
+AR01215,Ukhra,Drainage,E,A,3729703.06,High,held-out towns,4361699.07,High,0
+AR01230,Ukhra,Streetlights,E,A,3920620.85,Critical,held-out towns,4321031.44,Critical,3
+AR01240,Prayagpur,Water supply pipelines,D,B,292766.07,High,held-out towns,194903.7,High,3
+AR01241,Ukhra,Roads,C,B,196179.23,High,held-out towns,182702.49,Moderate,2
+AR01254,Ukhra,Drainage,D,B,207629.71,High,held-out towns,177703.89,High,3
+AR01264,Ukhra,Drainage,D,C,197963.25,High,held-out towns,283266.75,Moderate,2
+AR01269,Ukhra,Drainage,A,,,Low,held-out towns,,Low,1
+AR01273,Ukhra,Drainage,D,C,458305.68,High,held-out towns,655277.49,High,0
+AR01291,Ukhra,Drainage,D,B,975886.79,High,held-out towns,863102.2,Moderate,0
+AR01297,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR01303,Ukhra,Public parks,B,A,860960.24,Very Low,held-out towns,1021338.13,Very Low,1
+AR01307,Prayagpur,Drainage,C,B,519482.4,Moderate,held-out towns,778937.36,Moderate,2
+AR01321,Prayagpur,Roads,E,B,1680927.54,Critical,held-out towns,1692883.99,Critical,3
+AR01322,Ukhra,Water supply pipelines,E,,,High,held-out towns,,High,0
+AR01326,Ukhra,Drainage,E,A,2253392.78,Critical,held-out towns,3080377.16,Critical,0
+AR01363,Ukhra,Public parks,C,A,827126.91,Moderate,held-out towns,645539.02,Low,2
+AR01367,Prayagpur,Drainage,B,,,Low,held-out towns,,Low,1
+AR01388,Ukhra,Drainage,D,A,718387.73,High,held-out towns,662322.79,Critical,3
+AR01393,Ukhra,Drainage,E,,,High,held-out towns,,High,0
+AR01400,Ukhra,Streetlights,C,A,301261.99,Moderate,held-out towns,241612.92,Moderate,1
+AR01404,Ukhra,Drainage,D,C,375538.07,High,held-out towns,508438.22,High,2
+AR01415,Prayagpur,Public parks,E,,,High,held-out towns,,High,3
+AR01420,Prayagpur,Streetlights,B,A,127650.22,Low,held-out towns,116130.26,Low,1
+AR01432,Prayagpur,Water supply pipelines,A,,,Low,held-out towns,,Very Low,1
+AR01433,Ukhra,Drainage,C,A,1190719.08,Moderate,held-out towns,973458.69,Moderate,2
+AR01458,Ukhra,Drainage,C,B,306521.62,Moderate,held-out towns,506583.36,Moderate,2
+AR01464,Ukhra,Public parks,B,,,Very Low,held-out towns,,Low,1
+AR01478,Ukhra,Roads,C,B,693420.77,Low,held-out towns,851819.36,Moderate,1
+AR01483,Prayagpur,Roads,B,,,Low,held-out towns,,Moderate,1
+AR01488,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR01513,Ukhra,Drainage,B,,,Low,held-out towns,,Low,2
+AR01515,Ukhra,Roads,E,,,High,held-out towns,,Critical,0
+AR01542,Prayagpur,Drainage,D,,,Critical,held-out towns,,Critical,0
+AR01554,Ukhra,Drainage,D,,,High,held-out towns,,High,2
+AR01566,Prayagpur,Streetlights,D,C,220771.08,Moderate,held-out towns,239627.84,Moderate,2
+AR01574,Ukhra,Roads,E,D,2876223.18,High,held-out towns,3244986.24,High,0
+AR01597,Ukhra,Roads,D,C,1611749.53,High,held-out towns,1899779.62,High,0
+AR01611,Prayagpur,Water supply pipelines,E,B,922206.35,Critical,held-out towns,1126175.78,Critical,3
+AR01629,Ukhra,Drainage,D,B,746382.98,Critical,held-out towns,679586.53,High,2
+AR01637,Prayagpur,Drainage,B,A,407786.1,Low,held-out towns,439979.6,Low,2
+AR01659,Ukhra,Public parks,E,B,1048996.74,High,held-out towns,1135787.48,High,0
+AR01664,Ukhra,Streetlights,C,B,209202.02,Moderate,held-out towns,220323.59,Moderate,2
+AR01666,Ukhra,Roads,E,C,9443094.08,Critical,held-out towns,6455051.51,Critical,0
+AR01671,Ukhra,Water supply pipelines,C,B,439179.97,High,held-out towns,471944.42,High,2
+AR01674,Ukhra,Public parks,D,A,2010568.29,Moderate,held-out towns,2248052.54,Moderate,2
+AR01681,Ukhra,Roads,D,,,High,held-out towns,,High,0
+AR01696,Prayagpur,Roads,D,A,2566319.83,High,held-out towns,2459260.14,High,0
+AR01697,Ukhra,Drainage,C,B,318201.88,Moderate,held-out towns,446766.42,Moderate,2
+AR01700,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR01705,Ukhra,Roads,E,B,3455456.65,High,held-out towns,3321651.04,High,0
+AR01707,Prayagpur,Roads,A,,,Very Low,held-out towns,,Very Low,1
+AR01711,Ukhra,Roads,C,A,2167431.08,Moderate,held-out towns,1820695.75,Moderate,1
+AR01731,Ukhra,Drainage,C,B,139076.22,Moderate,held-out towns,171635.56,Low,2
+AR01734,Ukhra,Roads,E,B,2288303.36,Critical,held-out towns,2742451.01,Critical,3
+AR01741,Ukhra,Water supply pipelines,E,B,1715325.9,Critical,held-out towns,2122792.64,Critical,0
+AR01751,Ukhra,Roads,D,C,6263501.15,High,held-out towns,8549158.93,High,2
+AR01755,Prayagpur,Drainage,A,,,Low,held-out towns,,Low,1
+AR01757,Ukhra,Drainage,D,A,1362504.71,Moderate,held-out towns,1471297.49,High,0
+AR01780,Ukhra,Public parks,E,,,High,held-out towns,,High,0
+AR01787,Prayagpur,Water supply pipelines,A,,,Very Low,held-out towns,,Very Low,1
+AR01791,Ukhra,Roads,E,B,1861528.21,Critical,held-out towns,2006642.87,Critical,3
+AR01792,Prayagpur,Roads,A,,,Very Low,held-out towns,,Very Low,1
+AR01793,Prayagpur,Drainage,A,,,Low,held-out towns,,Very Low,1
+AR01800,Prayagpur,Drainage,A,,,Very Low,held-out towns,,Very Low,1
+AR01806,Ukhra,Water supply pipelines,C,B,743306.19,High,held-out towns,920095.93,Moderate,2
+AR01807,Ukhra,Roads,D,A,3840532.36,Moderate,held-out towns,3259181.82,High,2
+AR01810,Prayagpur,Drainage,D,B,2188133.65,High,held-out towns,1617048.29,Moderate,0
+AR01814,Ukhra,Streetlights,E,D,152526.51,Critical,held-out towns,188497.38,Critical,3
+AR01817,Prayagpur,Drainage,C,A,730966.7,High,held-out towns,732331.04,Moderate,2
+AR01825,Ukhra,Streetlights,E,A,2546714.52,High,held-out towns,3649312.7,Critical,3
+AR01830,Ukhra,Drainage,E,A,2831713.64,Critical,held-out towns,4397099.51,Critical,3
+AR01845,Prayagpur,Water supply pipelines,C,A,1753272.27,Moderate,held-out towns,1318670.7,Moderate,2
+AR01871,Ukhra,Drainage,B,A,316178.61,Low,held-out towns,369065.58,Low,1
+AR01872,Ukhra,Drainage,D,C,234156.04,High,held-out towns,298954.23,High,2
+AR01893,Ukhra,Drainage,C,A,462704.81,Moderate,held-out towns,431071.72,Low,2
+AR01895,Ukhra,Roads,B,,,Low,held-out towns,,Low,1
+AR01900,Ukhra,Roads,C,,,Moderate,held-out towns,,Moderate,2
+AR01916,Ukhra,Drainage,D,A,2072116.53,High,held-out towns,1583519.77,High,0
+AR01918,Prayagpur,Water supply pipelines,A,,,Low,held-out towns,,Low,1
+AR01923,Ukhra,Water supply pipelines,C,B,206766.16,Moderate,held-out towns,164847.18,Moderate,2
+AR01937,Prayagpur,Water supply pipelines,A,,,Low,held-out towns,,Very Low,1
+AR01941,Ukhra,Public parks,C,B,315762.42,Low,held-out towns,342402.46,Low,2
+AR01942,Ukhra,Drainage,E,A,387601.11,Critical,held-out towns,652354.76,Critical,0
+AR01972,Ukhra,Roads,E,C,2796778.21,Critical,held-out towns,1909157.94,Critical,0
+AR01992,Ukhra,Drainage,D,,,High,held-out towns,,High,0
+AR01998,Ukhra,Water supply pipelines,D,,,High,held-out towns,,High,0
+AR02002,Prayagpur,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR02011,Prayagpur,Roads,E,A,5658095.3,Critical,held-out towns,8024457.25,Critical,0
+AR02014,Ukhra,Public parks,C,A,1940735.49,Very Low,held-out towns,1318697.05,Low,1
+AR02036,Ukhra,Roads,B,A,1216016.21,Very Low,held-out towns,1093081.68,Very Low,1
+AR02041,Ukhra,Streetlights,C,B,109541.45,Low,held-out towns,128649.62,Moderate,2
+AR02050,Ukhra,Roads,B,A,1331351.48,Low,held-out towns,1408528.81,Low,1
+AR02055,Prayagpur,Water supply pipelines,C,A,2888849.39,Moderate,held-out towns,2106900.0,High,2
+AR02060,Ukhra,Roads,B,A,3287774.66,Low,held-out towns,3808036.2,Low,1
+AR02079,Ukhra,Drainage,D,B,263191.02,High,held-out towns,198389.94,High,0
+AR02085,Ukhra,Drainage,D,,,High,held-out towns,,Critical,3
+AR02095,Prayagpur,Drainage,B,A,162766.74,Low,held-out towns,210013.89,Low,2
+AR02100,Prayagpur,Roads,E,B,41973334.52,Critical,held-out towns,35455110.38,Critical,3
+AR02101,Ukhra,Water supply pipelines,C,B,120470.38,Moderate,held-out towns,112931.22,Moderate,2
+AR02130,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR02135,Ukhra,Roads,B,A,666436.74,Low,held-out towns,765150.1,Moderate,1
+AR02143,Ukhra,Public parks,D,A,2454797.12,Moderate,held-out towns,3155970.12,Moderate,0
+AR02159,Ukhra,Streetlights,E,B,4112422.6,Critical,held-out towns,4332727.27,High,3
+AR02160,Ukhra,Drainage,E,B,4716848.48,Critical,held-out towns,3948732.95,Critical,3
+AR02176,Ukhra,Roads,D,C,470496.3,Moderate,held-out towns,652523.2,Moderate,2
+AR02177,Ukhra,Roads,C,B,4141251.22,Moderate,held-out towns,4753700.27,Moderate,1
+AR02200,Ukhra,Streetlights,D,B,1038614.36,High,held-out towns,850354.8,High,2
+AR02203,Prayagpur,Streetlights,C,B,224746.45,Low,held-out towns,235238.55,Moderate,2
+AR02221,Ukhra,Roads,D,C,1025442.26,High,held-out towns,1443882.02,High,0
+AR02229,Ukhra,Streetlights,E,,,Critical,held-out towns,,Critical,3
+AR02238,Ukhra,Roads,D,B,3804263.81,High,held-out towns,2816742.16,High,3
+AR02247,Ukhra,Public parks,B,A,496102.91,Low,held-out towns,523059.69,Low,1
+AR02253,Ukhra,Drainage,D,,,High,held-out towns,,Moderate,0
+AR02255,Prayagpur,Roads,D,A,11096620.77,High,held-out towns,9671356.21,Moderate,2
+AR02282,Ukhra,Water supply pipelines,D,A,2637883.75,High,held-out towns,2697367.31,High,0
+AR02299,Ukhra,Public parks,E,,,High,held-out towns,,High,3
+AR02301,Prayagpur,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR02310,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR02316,Ukhra,Roads,E,C,5172125.23,High,held-out towns,3542672.79,Critical,0
+AR02341,Ukhra,Water supply pipelines,A,,,Very Low,held-out towns,,Low,1
+AR02342,Ukhra,Roads,C,B,1381196.77,Moderate,held-out towns,1791390.31,Moderate,2
+AR02343,Prayagpur,Roads,D,B,931165.61,High,held-out towns,796781.82,High,2
+AR02352,Ukhra,Public parks,B,A,178322.6,Very Low,held-out towns,186209.07,Very Low,1
+AR02353,Prayagpur,Drainage,C,,,Moderate,held-out towns,,Moderate,2
+AR02358,Prayagpur,Streetlights,B,,,Very Low,held-out towns,,Low,1
+AR02361,Ukhra,Public parks,E,,,High,held-out towns,,High,3
+AR02371,Ukhra,Water supply pipelines,D,C,418833.63,Moderate,held-out towns,373195.23,Moderate,0
+AR02374,Ukhra,Streetlights,C,B,379860.0,Low,held-out towns,562581.92,Moderate,2
+AR02395,Ukhra,Water supply pipelines,C,B,334020.07,Moderate,held-out towns,349600.88,Moderate,2
+AR02397,Ukhra,Roads,C,,,Moderate,held-out towns,,Moderate,2
+AR02414,Ukhra,Streetlights,E,C,444847.99,Critical,held-out towns,410925.7,Critical,0
+AR02418,Prayagpur,Streetlights,C,A,569248.89,Moderate,held-out towns,447359.26,Moderate,2
+AR02421,Prayagpur,Streetlights,C,,,Low,held-out towns,,Low,2
+AR02425,Ukhra,Roads,C,B,1161347.83,Low,held-out towns,1624361.1,Moderate,1
+AR02430,Ukhra,Streetlights,B,,,Low,held-out towns,,Low,1
+AR02432,Ukhra,Roads,A,,,Low,held-out towns,,Very Low,1
+AR02459,Ukhra,Roads,C,B,573486.55,Moderate,held-out towns,842012.82,Moderate,2
+AR02465,Ukhra,Roads,E,C,2012475.95,Critical,held-out towns,1671371.64,High,3
+AR02486,Prayagpur,Roads,E,B,17578139.77,Critical,held-out towns,14781027.01,Critical,0
+AR02487,Ukhra,Roads,E,B,3830926.26,High,held-out towns,3802518.28,Critical,0
+AR02491,Ukhra,Drainage,C,B,410229.21,Moderate,held-out towns,531432.51,Moderate,2
+AR02492,Ukhra,Roads,D,B,11506020.78,High,held-out towns,9834636.1,High,0
+AR02500,Prayagpur,Streetlights,C,,,Moderate,held-out towns,,Moderate,2
+AR02510,Ukhra,Public parks,E,,,High,held-out towns,,High,0
+AR02520,Prayagpur,Roads,E,C,574203.84,Critical,held-out towns,541516.34,Critical,0
+AR02568,Ukhra,Streetlights,E,B,576137.18,High,held-out towns,508136.56,Critical,0
+AR02578,Ukhra,Streetlights,C,A,280431.02,Low,held-out towns,273854.74,Moderate,1
+AR02582,Prayagpur,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR02597,Ukhra,Water supply pipelines,D,B,1078240.24,Critical,held-out towns,1071134.51,High,0
+AR02598,Ukhra,Roads,B,,,Very Low,held-out towns,,Low,1
+AR02599,Prayagpur,Roads,A,,,Very Low,held-out towns,,Low,1
+AR02606,Ukhra,Public parks,C,,,Low,held-out towns,,Low,2
+AR02617,Ukhra,Drainage,E,A,3393699.09,Critical,held-out towns,4497158.99,Critical,3
+AR02625,Ukhra,Drainage,D,A,3739126.09,High,held-out towns,3207989.83,High,0
+AR02631,Ukhra,Water supply pipelines,C,B,505113.71,Moderate,held-out towns,583546.78,High,2
+AR02638,Ukhra,Drainage,D,C,147337.74,High,held-out towns,195188.32,High,0
+AR02662,Ukhra,Streetlights,A,,,Very Low,held-out towns,,Very Low,1
+AR02672,Ukhra,Drainage,E,A,4114990.42,Critical,held-out towns,4008332.31,High,0
+AR02685,Ukhra,Roads,E,A,3858803.47,High,held-out towns,5486509.32,Critical,0
+AR02697,Prayagpur,Public parks,D,B,2778671.31,High,held-out towns,2218342.06,High,2
+AR02706,Ukhra,Roads,E,C,9550207.56,Critical,held-out towns,6471672.44,Critical,0
+AR02716,Prayagpur,Public parks,E,A,1669862.37,Critical,held-out towns,2788598.04,High,3
+AR02722,Ukhra,Public parks,E,C,1623470.45,High,held-out towns,1151965.09,High,0
+AR02735,Prayagpur,Roads,C,B,312918.92,Moderate,held-out towns,421191.88,Moderate,2
+AR02739,Ukhra,Roads,D,,,High,held-out towns,,Moderate,2
+AR02749,Prayagpur,Roads,D,B,6151665.09,High,held-out towns,3908689.01,High,3
+AR02751,Prayagpur,Roads,C,,,Moderate,held-out towns,,Moderate,2
+AR02756,Ukhra,Drainage,C,B,576283.16,Moderate,held-out towns,578873.86,Moderate,2
+AR02760,Ukhra,Streetlights,D,C,233656.78,High,held-out towns,260884.54,High,2
+AR02767,Ukhra,Water supply pipelines,C,,,High,held-out towns,,High,2
+AR02768,Prayagpur,Roads,B,,,Low,held-out towns,,Low,1
+AR02780,Ukhra,Roads,E,,,High,held-out towns,,Critical,0
+AR02796,Ukhra,Roads,C,B,1346616.29,Moderate,held-out towns,1701840.93,Moderate,2
+AR02808,Prayagpur,Roads,B,A,1007071.28,Low,held-out towns,934271.89,Moderate,1
+AR02834,Ukhra,Drainage,E,A,14692311.43,Critical,held-out towns,15796405.15,Critical,3
+AR02839,Ukhra,Streetlights,B,,,Low,held-out towns,,Low,1
+AR02840,Ukhra,Streetlights,E,B,1789146.6,High,held-out towns,1715825.83,High,0
+AR02845,Ukhra,Public parks,A,,,Very Low,held-out towns,,Very Low,1
+AR02855,Ukhra,Water supply pipelines,C,B,376827.74,Moderate,held-out towns,564453.79,Moderate,2
+AR02856,Ukhra,Roads,C,,,Moderate,held-out towns,,Moderate,2
+AR02872,Prayagpur,Drainage,C,B,196139.11,High,held-out towns,231503.49,Moderate,2
+AR02874,Ukhra,Roads,E,C,5167274.53,Critical,held-out towns,3816596.22,Critical,0
+AR02898,Ukhra,Streetlights,B,A,120462.62,Low,held-out towns,147592.54,Low,1
+AR02908,Ukhra,Drainage,B,,,Low,held-out towns,,Low,1
+AR02951,Ukhra,Drainage,B,A,245943.27,Very Low,held-out towns,237087.89,Low,2
+AR02977,Ukhra,Water supply pipelines,C,B,577318.51,High,held-out towns,528962.28,Moderate,0

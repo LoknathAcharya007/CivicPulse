@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "_ui.html" import grade, empty, pager, icon %}
+{% block title %}Estimates{% endblock %}
+{% block description %}Saved infrastructure improvement cost estimates with search, filters and CSV export.{% endblock %}
+{% block content %}
+{% set args = {"town": selected.town or "", "category": selected.category or "", "target": selected.target or "", "q": selected.q} %}
+<div class="page-head">
+  <div><div class="eyebrow">Estimate history</div><h1>Saved estimates</h1>
+    <p class="lead">Estimates saved for assets in your towns, newest first. Amounts are the values stored at the time of saving.</p></div>
+  <div class="actions">
+    <a class="btn btn-ghost" href="{{ url_for('reports.estimates_csv', **args) }}">{{ icon("download") }}Export CSV</a>
+    <a class="btn btn-accent" href="{{ url_for('estimates.new') }}">New estimate</a>
+  </div>
+</div>
+
+<form class="filters" method="get" role="search" data-autosubmit aria-label="Filter estimates">
+  <div class="field filter-search"><label for="q">Search</label><input type="search" id="q" name="q" value="{{ selected.q }}" maxlength="60" placeholder="Asset code or name"></div>
+  <div class="field"><label for="town">Town</label><select id="town" name="town"><option value="">All my towns</option>
+    {% for t in towns %}<option value="{{ t.id }}" {% if selected.town == t.id %}selected{% endif %}>{{ t.name }}</option>{% endfor %}</select></div>
+  <div class="field"><label for="category">Category</label><select id="category" name="category"><option value="">All categories</option>
+    {% for c in categories %}<option {% if selected.category == c %}selected{% endif %}>{{ c }}</option>{% endfor %}</select></div>
+  <div class="field"><label for="target">Target grade</label><select id="target" name="target"><option value="">Any</option>
+    {% for g in grades if g != "E" %}<option value="{{ g }}" {% if selected.target == g %}selected{% endif %}>{{ g }} – {{ g|grade_name }}</option>{% endfor %}</select></div>
+  <div class="filter-actions"><button type="submit" class="btn btn-primary">Apply</button>
+    {% if selected.q or selected.town or selected.category or selected.target %}<a class="btn btn-ghost" href="{{ url_for('estimates.index') }}">Clear</a>{% endif %}</div>
+</form>
+
+<section class="card flush">
+  <div class="card-head"><p class="small muted" aria-live="polite">{{ results.total }} estimate{{ "" if results.total == 1 else "s" }}</p></div>
+  {% if results.items %}
+  <div class="table-wrap section">
+    <table class="table stack-sm">
+      <thead><tr><th scope="col">#</th><th scope="col">Asset</th><th scope="col">Town</th><th scope="col">Upgrade</th><th scope="col">Saved</th><th scope="col" class="num">Final estimate</th></tr></thead>
+      <tbody>{% for e in results.items %}
+        <tr><td data-label="#"><a class="row-link" href="{{ url_for('estimates.detail', estimate_id=e.id) }}">#{{ e.id }}</a></td>
+          <td data-label="Asset"><span class="strong">{{ e.asset.asset_code }}</span><span class="sub">{{ e.asset.category }} · {{ e.quantity|num(1) }} {{ e.unit|unit_label }}</span></td>
+          <td data-label="Town">{{ e.asset.town.name }}</td>
+          <td data-label="Upgrade"><span class="grade-cell">{{ grade(e.current_grade) }}→{{ grade(e.target_grade) }}</span></td>
+          <td data-label="Saved">{{ e.created_at|ist }}<span class="sub">{{ e.created_by.username }}</span></td>
+          <td data-label="Final estimate" class="num strong">{{ e.final_cost|inr }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  {{ pager(results, "estimates.index", args) }}
+  {% else %}
+    {% if selected.q or selected.town or selected.category or selected.target %}
+      {% call empty("No estimates match these filters") %}<a class="btn btn-ghost btn-sm" href="{{ url_for('estimates.index') }}">Clear filters</a>{% endcall %}
+    {% else %}
+      {% call empty("No estimates saved yet", "Choose an asset and a better target grade to create the first one.") %}<a class="btn btn-primary btn-sm" href="{{ url_for('estimates.new') }}">New estimate</a>{% endcall %}
+    {% endif %}
+  {% endif %}
+</section>
+{% endblock %}

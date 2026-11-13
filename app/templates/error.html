@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ "Error " ~ code }}{% endblock %}
+{% block description %}{{ message }}{% endblock %}
+{% block content %}
+<section class="card card-yellow">
+  <div class="eyebrow">Error {{ code }}</div>
+  <h1>{{ {400: "Request not accepted", 401: "Please sign in", 403: "Not permitted", 404: "Page not found", 405: "Not allowed",
+          413: "Request too large", 429: "Too many requests", 500: "Something went wrong", 503: "Temporarily unavailable"}.get(code, "Error") }}</h1>
+  <p class="lead">{{ message }}</p>
+  <div class="actions section">
+    {% if current_user.is_authenticated %}<a class="btn btn-primary" href="{{ url_for('dashboard.index') }}">Back to the dashboard</a>
+    {% else %}<a class="btn btn-primary" href="{{ url_for('auth.login') }}">Sign in</a>{% endif %}
+  </div>
+</section>
+{% endblock %}

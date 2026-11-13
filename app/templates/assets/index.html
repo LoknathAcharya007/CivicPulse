@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% from "_ui.html" import grade_cell, priority, empty, pager %}
+{% block title %}Assets{% endblock %}
+{% block description %}Search and filter infrastructure assets by town, category and condition grade.{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <div class="eyebrow">Asset explorer</div>
+    <h1>Infrastructure assets</h1>
+    <p class="lead">Roads (m²), drainage (metres), streetlights (units), water supply pipelines (metres) and public parks (m²) in your permitted towns. All records are illustrative synthetic data.</p>
+  </div>
+  <div class="actions"><a class="btn btn-accent" href="{{ url_for('estimates.new') }}">New cost estimate</a></div>
+</div>
+
+{% include "assets/_filters.html" %}
+
+<section class="card flush" aria-labelledby="res-h">
+  <div class="card-head"><h2 id="res-h" class="visually-hidden">Results</h2><p class="small muted" aria-live="polite">{{ results.total }} assets found</p></div>
+  {% if results.items %}
+  <div class="table-wrap section">
+    <table class="table stack-sm">
+      <thead><tr><th scope="col">Asset</th><th scope="col">Town</th><th scope="col">Category</th><th scope="col" class="num">Quantity</th>
+        <th scope="col">Condition</th><th scope="col">Priority</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr></thead>
+      <tbody>
+      {% for a in results.items %}{% set l = latest.get(a.id) %}
+        <tr>
+          <td data-label="Asset"><a class="row-link" href="{{ url_for('assets.detail', asset_id=a.id) }}">{{ a.asset_code }}</a><span class="sub">{{ a.name }}</span></td>
+          <td data-label="Town">{{ a.town.name }}</td>
+          <td data-label="Category">{{ a.category }}</td>
+          <td data-label="Quantity" class="num">{{ a.quantity|num(1) }} <span class="unit">{{ a.unit|unit_label }}</span></td>
+          <td data-label="Condition">{{ grade_cell(a.current_grade) }}</td>
+          <td data-label="Priority">{{ priority(l.predicted_priority if l else None) }}</td>
+          <td data-label="" class="num">{% if a.current_grade != "A" %}<a class="btn btn-ghost btn-sm" href="{{ url_for('estimates.compare', asset_id=a.id) }}">Estimate</a>{% else %}<span class="small muted">Top grade</span>{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {{ pager(results, "assets.index", {"town": selected.town or "", "category": selected.category or "", "grade": selected.grade or "", "q": selected.q}) }}
+  {% else %}
+  {% call empty("No assets match these filters", "Try another town, category or grade, or clear the search.") %}<a class="btn btn-ghost btn-sm" href="{{ url_for('assets.index') }}">Clear filters</a>{% endcall %}
+  {% endif %}
+</section>
+{% endblock %}

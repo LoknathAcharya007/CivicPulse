@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "_ui.html" import field %}
+{% block title %}Edit {{ user.username }} · Admin{% endblock %}
+{% block description %}Edit a CivicPulse account.{% endblock %}
+{% block content %}
+{% set admin_title = "Edit " ~ user.username %}{% set admin_lead = "Changing the role, towns or active status signs this user out of every session." %}
+{% include "admin/_tabs.html" %}
+<section class="card">
+  <form method="post" novalidate data-once>
+    {{ form.hidden_tag() }}
+    <div class="form-grid">
+      {{ field(form.full_name, maxlength=100) }}
+      {{ field(form.role) }}
+      {{ field(form.towns, hint="Required for officials. Hold Ctrl (Cmd on Mac) to select several.") }}
+      <div>{{ field(form.active) }}</div>
+    </div>
+    <div class="form-actions"><button type="submit" class="btn btn-primary" data-busy-label="Saving…">Save changes</button>
+      <a class="btn btn-ghost" href="{{ url_for('admin.users') }}">Cancel</a></div>
+  </form>
+</section>
+{% endblock %}

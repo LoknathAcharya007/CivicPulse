@@ -1,0 +1,17 @@
+{% from "_ui.html" import status %}
+<div class="section-head"><div><h3>Reference-rate check</h3>
+  <p>{{ rc.package }} · {{ rc.rate_per_unit|inr_paise }} per unit × quantity = <strong>{{ rc.cost|inr }}</strong>. {{ rc.note }}</p></div></div>
+<div class="table-wrap">
+  <table class="table table-compact stack-sm">
+    <thead><tr><th scope="col">Ref</th><th scope="col">Item</th><th scope="col" class="num">Rate</th><th scope="col" class="num">Per asset unit</th>
+      <th scope="col">Status</th><th scope="col">Source</th><th scope="col">Date · price basis</th></tr></thead>
+    <tbody>{% for c in rc.components %}
+      <tr><td data-label="Ref" class="strong">{{ c.ref_id }}</td>
+        <td data-label="Item">{{ c.description }}{% if c.item_code %}<span class="sub">{{ c.item_code }}</span>{% endif %}</td>
+        <td data-label="Rate" class="num">{{ c.rate_inr|inr_paise }}<span class="sub">per {{ c.unit }}</span></td>
+        <td data-label="Per asset unit" class="num">× {{ c.factor_per_asset_unit }}<span class="sub">{{ c.amount_per_asset_unit|inr_paise }}</span></td>
+        <td data-label="Status">{{ status(c.verification_status) }}<span class="sub">{{ c.rate_type }}</span></td>
+        <td data-label="Source">{{ c.source_document or "–" }}{% if c.source_url|http_url %} <a href="{{ c.source_url|http_url }}" rel="noopener noreferrer">source</a>{% endif %}</td>
+        <td data-label="Date">{{ c.document_date or "–" }}<span class="sub">{{ c.price_basis or "" }}</span></td></tr>{% endfor %}</tbody>
+  </table>
+</div>

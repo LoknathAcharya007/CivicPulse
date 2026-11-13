@@ -1,0 +1,29 @@
+{# Cost breakdown lines exactly as computed and stored by the backend (no arithmetic here). #}
+{% from "_ui.html" import status %}
+<table class="breakdown">
+  <caption class="visually-hidden">Cost breakdown</caption>
+  <tbody>
+  {% for l in lines %}{% set included = l.key in ("material", "labour", "transport") %}
+    <tr class="{{ 'total' if l.key == 'final' else ('included' if included else '') }}">
+      <td class="b-label">{{ l.label }}</td>
+      <td class="b-basis">
+        {% if l.key != "final" %}<div class="b-status"><span class="pill no-dot {{ 'status-assumption' if l.status.startswith('Assumption') else ('status-unavailable' if l.status.startswith('Not applied') else 'status-official') }}">{{ l.status }}</span></div>{% endif %}
+        {{ l.basis }}
+        {% if l.references %}
+        <details class="refs"><summary>Reference wage rates ({{ l.references|length }}) — not added</summary>
+          <div class="table-wrap"><table class="table stack-sm">
+            <thead><tr><th scope="col">Ref</th><th scope="col">Rate</th><th scope="col">Status</th><th scope="col">Source · date</th></tr></thead>
+            <tbody>{% for r in l.references %}
+              <tr><td data-label="Ref"><span class="strong">{{ r.ref_id }}</span><span class="sub">{{ r.description }}</span></td>
+                <td data-label="Rate" class="num">{{ (r.rate_inr|inr_paise ~ " / day") if r.rate_inr is not none else "Unavailable" }}</td>
+                <td data-label="Status">{{ status(r.verification_status) }}</td>
+                <td data-label="Source">{{ r.source_document or "–" }}<span class="sub">{{ r.document_date or "" }}</span></td></tr>{% endfor %}</tbody>
+          </table></div>
+        </details>
+        {% endif %}
+      </td>
+      <td class="b-amount">{% if included %}Included<span class="sub small">₹0 added</span>{% else %}{{ l.amount|inr }}{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
